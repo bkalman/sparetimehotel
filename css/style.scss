@@ -1,0 +1,232 @@
+*{padding:0;margin:0;}
+body{
+  background-color: #FBFBFB;
+  overflow-x: hidden;
+  color:#4D4D4D;
+  font-size: 1.3rem;
+}
+#nav{
+  background-image: url('../img/bigbg.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height:100vh;
+  overflow: hidden;
+}
+footer {
+  background-color: rgb(19, 0, 0);
+  height: 200px;
+  p {
+    text-align: center;
+    color: white;
+    padding: 80px 0;
+  }
+}
+.navbar{
+  background-color: white;
+  width:100%;
+  position: fixed;
+  z-index:5;
+}
+.navbar-nav {
+  float:right;
+}
+#house{
+  background-image: url('../img/housebg.png');
+  background-repeat: repeat-x;
+  background-size: 148px;
+  height:148px;
+  width:100%;
+  margin-top:-78px;
+  z-index: 3;
+  position: relative;
+}
+#container{
+  z-index: 2;
+  width: inherit;
+  background-color: #FBFBFB;
+  position: relative;
+  top:-70px;
+  padding-top: 180px;;
+}
+#title{
+  width:500px;
+  position: fixed;
+  top:100px;
+  left:50px;
+  z-index: 0;
+  > h1{
+    font-size: 120px;
+    font-family: 'Stardos Stencil', cursive;
+    letter-spacing: 20px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 3px black;
+    > span{
+      position:absolute;
+      left:380px;
+      bottom:0;
+      font-size: 60px;
+      color:fuchsia;
+      font-family: 'Yesteryear', cursive;
+      letter-spacing: 5px;
+      text-transform: lowercase;
+      text-shadow: 2px 2px 3px black;
+    }
+  }
+}
+
+h2 {
+  margin: 50px 0;
+  text-align: left;
+}
+
+$szin : #F39F71;
+form#reservation {
+  font-weight: bold;
+  text-align: center;
+  label {
+    color: $szin;
+    text-shadow: 0 0 2px $szin;
+  }
+  > .row > .col-12 > .row > div > input {
+    text-align: center;
+    box-shadow: 2px 2px 3px lightgray;
+    &.form-control, &.btn {
+      border-radius: 50px;
+    }
+    &#bedNumber{
+      width: 80px;
+      margin-right: 10px;
+      display: initial;
+    }
+    &[type=submit] {
+      font-weight: bold;
+    }
+    &[type=submit] {
+      background-color: $szin;
+      color: white;
+      width: calc(100% - 30px);
+      position: absolute;
+      bottom: 2px;
+      left:15px;
+      right:15px;
+    }
+  }
+}
+
+form#choice {
+  table {
+    margin: 0 auto;
+    input[type=checkbox] {
+      height: 20px;
+      width: 20px;
+      margin-left: 29px;
+    }
+    td:first-of-type {
+      width: 70px;
+    }
+  }
+  input[type=number] {
+    background-color: #FBFBFB;
+    width: 50px;
+    border: none;
+    margin: auto 10px;
+    text-align: center;
+    height: 20px;
+    line-height: 30px;
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      opacity: 1;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+#latnivalok > .col-12 {
+  text-align: justify;
+  margin: 50px 0;
+  > p {
+    margin: 10px;
+  }
+  > img {
+    width: 500px;
+    margin: 10px;
+  }
+  &:nth-of-type(odd) {
+    > img { float: left; } }
+  &:nth-of-type(even) {
+    > img { float: right; }
+  }
+}
+
+#guests {
+  display:none;
+  margin: 10px 0 0 -20px;
+  position: absolute;
+  background-color: white;
+  z-index: 3;
+  width: 300px;
+  box-shadow: 2px 2px 3px lightgray;
+  > table {
+    width: 300px;
+    border: 1px solid lightgray;
+    font-size: 17px;
+    font-weight: normal;
+    hr {
+      margin:0;
+    }
+  }
+  #adultNumber, #childNumber {
+    width: 50px;
+    margin: 5px;
+    padding: 5px;
+  }
+}
+
+
+a {
+  color: #F39F71;
+  &:hover {
+    text-decoration: none;
+    color: #f5bfa3;
+  }
+}
+
+@media (max-width:850px){
+  #title{
+    width:270px;
+    > #title > h1{
+      font-size: 50px;
+    }
+    > #title span{
+      font-size: 40px;
+      left:200px;
+    }
+  }
+}
+
+//animation
+
+/*#title > h1{
+    animation: rotate 1s linear infinite;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+
+  @keyframes rotate {
+    0% {
+        opacity: 100%;
+    }
+    15% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 0%;
+    }
+  }*/

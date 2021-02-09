@@ -1,0 +1,11 @@
+{
+    "require": {
+        "filp/whoops": "^2.9"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "app\\" : "src/app/",
+            "db\\" : "src/db/"
+        }
+    }
+}

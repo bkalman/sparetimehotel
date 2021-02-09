@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteOptions MaxRedirects=10
+RewriteRule ^(.*)controller/([^/]+)(/*)$ index.php?controller=home&action=$2 [L]
+
+</IfModule>
