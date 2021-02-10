@@ -50,7 +50,7 @@ footer {
   top:-70px;
   padding-top: 180px;;
 }
-#title{
+#title {
   width:500px;
   position: fixed;
   top:100px;
@@ -145,6 +145,19 @@ form#choice {
   }
 }
 
+#userlog {
+  margin-left: calc(100vw - 750px);
+  a {
+    margin-left: 10px;
+  }
+}
+
+form#login {
+  input {
+    width: 100%;
+  }
+}
+
 #latnivalok > .col-12 {
   text-align: justify;
   margin: 50px 0;
@@ -195,38 +208,16 @@ a {
   }
 }
 
-@media (max-width:850px){
-  #title{
-    width:270px;
-    > #title > h1{
-      font-size: 50px;
-    }
-    > #title span{
-      font-size: 40px;
-      left:200px;
+@media (max-width: 850px){
+  #title {
+    width: 500px;
+    > h1 {
+      font-size: 80px;
+
+      > span {
+        left: 300px;
+        font-size: 50px;
+      }
     }
   }
 }
-
-//animation
-
-/*#title > h1{
-    animation: rotate 1s linear infinite;
-    animation-play-state: paused;
-    animation-delay: calc(var(--scroll) * -1s);
-
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-  }
-
-  @keyframes rotate {
-    0% {
-        opacity: 100%;
-    }
-    15% {
-        opacity: 0%;
-    }
-    100% {
-        opacity: 0%;
-    }
-  }*/

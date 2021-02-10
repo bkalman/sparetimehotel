@@ -1,0 +1,18 @@
+#nav {
+  height: 50vh;
+}
+
+@media (max-height: 1000px) {
+  #title {
+    width: 500px;
+  }
+  #title > h1 {
+    font-size: 80px;
+  }
+  #title > h1 > span {
+    left: 300px;
+    font-size: 50px;
+  }
+}
+
+/*# sourceMappingURL=nav.css.map */

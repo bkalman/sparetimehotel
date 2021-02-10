@@ -1,8 +1,6 @@
-<?php //include('startTemplate.php'); ?>
+<?php include('src/app/view/template/startTemplate.php'); ?>
+<?php include('src/app/view/template/navbar.php'); ?>
 
-<?php
-include('navbar.php');
-include($content);
-?>
+<?= $content; ?>
 
-<?php //include('endTemplate.php');?>
+<?php include('src/app/view/template/endTemplate.php'); ?>

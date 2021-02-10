@@ -71,15 +71,4 @@ class Guest
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
     }
-
-    /**
-     * @param $id
-     * @return Guest
-     */
-    public static function findOneById($id) {
-        $conn = Database::getConnection();
-        $stmt = $conn->prepare('SELECT * FROM guest WHERE guest_id = :id');
-        $stmt->execute([':id' => $id]);
-        return $stmt->fetchObject(self::class);
-    }
 }

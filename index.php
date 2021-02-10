@@ -22,14 +22,25 @@ $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
-$controllerName = !empty($_GET['controller'])? ucfirst($_GET['controller']).'Controller' : 'ProductController';
-$actionName = !empty($_GET['action'])? 'action'.ucfirst($_GET['action']) : 'actionIndex';
+session_start();
+
+$controllerName = !empty($_GET['controller'])? ucfirst($_GET['controller']).'Controller' : 'HyperlinkController';
+$actionName = !empty($_GET['action'])? 'action'.ucfirst($_GET['action']) : 'actionHome';
 
 $content = '404';
+$style = '';
+if($actionName != 'actionHome') $style = 'css/nav.css';
 
 if($controllerName == 'HyperlinkController') {
-    if($actionName == 'actionHome') {
-        $content = 'src/app/view/home/index.php';
+    $controller = new \app\controller\ViewController();
+    $content = !empty($_GET['action'])? $controller->actionIndex($_GET['action']) : $controller->actionIndex('home');
+
+} else if($controllerName == 'EmployeesController') {
+    $controller = new \app\controller\EmployeesController();
+    if($actionName == 'actionLogin') {
+        $content = $controller->actionLogin();
+    } else if($actionName == 'actionLogout') {
+        $content = $controller->actionLogout();
     }
 }
 include('src/app/view/template/mainTemplate.php');

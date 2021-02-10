@@ -152,6 +152,17 @@ form#choice input[type=number]:focus {
   outline: none;
 }
 
+#userlog {
+  margin-left: calc(100vw - 750px);
+}
+#userlog a {
+  margin-left: 10px;
+}
+
+form#login input {
+  width: 100%;
+}
+
 #latnivalok > .col-12 {
   text-align: justify;
   margin: 50px 0;
@@ -204,35 +215,15 @@ a:hover {
 
 @media (max-width: 850px) {
   #title {
-    width: 270px;
+    width: 500px;
   }
-  #title > #title > h1 {
+  #title > h1 {
+    font-size: 80px;
+  }
+  #title > h1 > span {
+    left: 300px;
     font-size: 50px;
   }
-  #title > #title span {
-    font-size: 40px;
-    left: 200px;
-  }
 }
-/*#title > h1{
-    animation: rotate 1s linear infinite;
-    animation-play-state: paused;
-    animation-delay: calc(var(--scroll) * -1s);
-
-    animation-iteration-count: 1;
-    animation-fill-mode: both;
-  }
-
-  @keyframes rotate {
-    0% {
-        opacity: 100%;
-    }
-    15% {
-        opacity: 0%;
-    }
-    100% {
-        opacity: 0%;
-    }
-  }*/
 
 /*# sourceMappingURL=style.css.map */
