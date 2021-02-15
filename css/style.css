@@ -153,7 +153,8 @@ form#choice input[type=number]:focus {
 }
 
 #userlog {
-  margin-left: calc(100vw - 750px);
+  position: absolute;
+  right: 15px;
 }
 #userlog a {
   margin-left: 10px;

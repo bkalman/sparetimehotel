@@ -16,6 +16,7 @@ class Employees
     private $departmentId;
     private $address;
     private $password;
+
     private static $currentuser = null;
 
     /**
@@ -90,12 +91,30 @@ class Employees
         return $this->password;
     }
 
+    public static function getJob($id){
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare("SELECT jobs.title FROM employees INNER JOIN jobs ON employees.job_id = jobs.id WHERE employees.id = :id");
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch()['title'];
+    }
+    /**
+     * @param $id
+     * @return Employees
+     */
     public static function findOneById($id)
     {
         $conn = Database::getConnection();
         $stmt = $conn->prepare("SELECT * FROM employees WHERE id = :id");
-        $stmt->execute(['id' => $id]);
+        $stmt->execute([':id' => $id]);
         return $stmt->fetchObject(self::class);
+    }
+
+    public static function getCurrentUser()
+    {
+        if(is_null(self::$currentuser) && !empty($_SESSION['user_id'])) {
+            self::$currentuser = self::findOneById($_SESSION['user_id']);
+        }
+        return self::$currentuser;
     }
 
     /**
@@ -107,17 +126,6 @@ class Employees
         $stmt = $conn->prepare('SELECT * FROM employees WHERE email = :email');
         $stmt->execute([':email' => $email]);
         return $stmt->fetchObject(self::class);
-    }
-
-    /**
-     * @return Employees|null
-     */
-    public static function getCurrentUser()
-    {
-        if(is_null(self::$currentuser) && !empty($_SESSION['user_id'])) {
-            self::$currentuser = self::findOneById($_SESSION['user_id']);
-        }
-        return self::$currentuser;
     }
 
     /**

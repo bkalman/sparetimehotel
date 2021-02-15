@@ -146,7 +146,8 @@ form#choice {
 }
 
 #userlog {
-  margin-left: calc(100vw - 750px);
+  position: absolute;
+  right:15px;
   a {
     margin-left: 10px;
   }

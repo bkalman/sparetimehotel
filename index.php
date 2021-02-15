@@ -34,13 +34,25 @@ if($actionName != 'actionHome') $style = 'css/nav.css';
 if($controllerName == 'HyperlinkController') {
     $controller = new \app\controller\ViewController();
     $content = !empty($_GET['action'])? $controller->actionIndex($_GET['action']) : $controller->actionIndex('home');
-
 } else if($controllerName == 'EmployeesController') {
     $controller = new \app\controller\EmployeesController();
     if($actionName == 'actionLogin') {
         $content = $controller->actionLogin();
     } else if($actionName == 'actionLogout') {
         $content = $controller->actionLogout();
+    }
+} else if($controllerName == 'FunctionController') {
+    $controller = new \app\controller\FunctionsController();
+    if($actionName == 'actionGuests') {
+        $content = $controller->actionGuests();
+    } else if($actionName == 'actionReports') {
+        $content = $controller->actionReports();
+    }
+    else if($actionName == 'actionEmployees') {
+        $content = $controller->actionEmployees();
+    }
+    else if($actionName == 'actionRestaurant') {
+        $content = $controller->actionRestaurant();
     }
 }
 include('src/app/view/template/mainTemplate.php');
