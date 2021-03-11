@@ -10,8 +10,6 @@ class JobHistorys
     private $id;
     private $startDate;
     private $endDate;
-    private $jobId;
-    private $departmentId;
 
     /**
      * @return mixed
@@ -35,22 +33,6 @@ class JobHistorys
     public function getEndDate()
     {
         return $this->endDate;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getJobId()
-    {
-        return $this->jobId;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDepartmentId()
-    {
-        return $this->departmentId;
     }
 
     /**

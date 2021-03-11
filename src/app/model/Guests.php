@@ -12,7 +12,6 @@ class Guest
     private $lastName;
     private $email;
     private $phoneNumber;
-    private $roomBookingId;
 
     /**
      * @return mixed
@@ -52,14 +51,6 @@ class Guest
     public function getPhoneNumber()
     {
         return $this->phoneNumber;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRoomBookingId()
-    {
-        return $this->roomBookingId;
     }
 
     /**
