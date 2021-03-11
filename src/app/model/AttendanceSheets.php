@@ -3,34 +3,24 @@
 
 namespace app\model;
 use db\Database;
-use PDO;
 
 class AttendanceSheets
 {
-    private $id;
-    private $employeeId;
+    private $employee_id;
     private $year;
     private $month;
     private $day;
-    private $startTime;
-    private $endTime;
-    private $workingHours;
+    private $start_time;
+    private $end_time;
+    private $working_hours;
     private $break;
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * @return mixed
      */
     public function getEmployeeId()
     {
-        return $this->employeeId;
+        return $this->employee_id;
     }
 
     /**
@@ -62,7 +52,7 @@ class AttendanceSheets
      */
     public function getStartTime()
     {
-        return $this->startTime;
+        return $this->start_time;
     }
 
     /**
@@ -70,7 +60,7 @@ class AttendanceSheets
      */
     public function getEndTime()
     {
-        return $this->endTime;
+        return $this->end_time;
     }
 
     /**
@@ -78,8 +68,9 @@ class AttendanceSheets
      */
     public function getWorkingHours()
     {
-        return $this->workingHours;
+        return $this->working_hours;
     }
+
 
     /**
      * @return mixed
@@ -89,24 +80,27 @@ class AttendanceSheets
         return $this->break;
     }
 
-    /**
-     * @return array
-     */
-    public static function findAll() {
+    public static function findAll($sort) {
+        if ($sort == 'nameAsc') {
+            $sql = 'SELECT * FROM attendance_sheets';
+        } else if ($sort == 'nameDesc') {
+            $sql ='SELECT attendance_sheets.* FROM attendance_sheets INNER JOIN employees ON attendance_sheets.employee_id = employees.employee_id ORDER BY employees.last_name DESC, employees.first_name DESC';
+        }
         $conn = Database::getConnection();
-        $stmt = $conn->prepare('SELECT * FROM attendance_sheet');
+        $stmt = $conn->prepare($sql);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, self::class);
     }
 
-    /**
-     * @param $id
-     * @return AttendanceSheets
-     */
-    public static function findOneById($id) {
+    public static function findOneById($id,$sort,$year,$month) {
+        if ($sort == 'asc') {
+            $sql = 'SELECT * FROM attendance_sheets WHERE employee_id = :id AND attendance_sheets.year = :y AND attendance_sheets.month = :m';
+        } else if ($sort == 'desc') {
+            $sql ='SELECT attendance_sheets.* FROM attendance_sheets INNER JOIN employees ON attendance_sheets.employee_id = employees.employee_id WHERE attendance_sheets.employee_id = :id  AND attendance_sheets.year = :y AND attendance_sheets.month = :m ORDER BY attendance_sheets.year DESC, attendance_sheets.month DESC, attendance_sheets.day DESC';
+        }
         $conn = Database::getConnection();
-        $stmt = $conn->prepare('SELECT * FROM attendance_sheet WHERE id  = :id');
-        $stmt->execute([':id' => $id]);
-        return $stmt->fetchObject(self::class);
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([':id' => $id,':y' => $year,':m' => $month]);
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, self::class);
     }
 }

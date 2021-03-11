@@ -3,25 +3,27 @@
 
 namespace app\model;
 use db\Database;
-use PDO;
 
 class RoomBooking
 {
-    private $id;
-    private $guestId;
-    private $roomId;
-    private $startDate;
-    private $endDate;
+    private $room_booking_id;
+    private $guest_id;
+    private $adult;
+    private $child;
+    private $room_id;
+    private $start_date;
+    private $end_date;
     private $breakfast;
     private $lunch;
     private $dinner;
+    private $check_in;
 
     /**
      * @return mixed
      */
-    public function getId()
+    public function getRoomBookingId()
     {
-        return $this->id;
+        return $this->room_booking_id;
     }
 
     /**
@@ -29,7 +31,23 @@ class RoomBooking
      */
     public function getGuestId()
     {
-        return $this->guestId;
+        return $this->guest_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdult()
+    {
+        return $this->adult;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getChild()
+    {
+        return $this->child;
     }
 
     /**
@@ -37,7 +55,7 @@ class RoomBooking
      */
     public function getRoomId()
     {
-        return $this->roomId;
+        return $this->room_id;
     }
 
     /**
@@ -45,7 +63,7 @@ class RoomBooking
      */
     public function getStartDate()
     {
-        return $this->startDate;
+        return $this->start_date;
     }
 
     /**
@@ -53,7 +71,7 @@ class RoomBooking
      */
     public function getEndDate()
     {
-        return $this->endDate;
+        return $this->end_date;
     }
 
     /**
@@ -81,13 +99,18 @@ class RoomBooking
     }
 
     /**
-     * @return array
+     * @return mixed
      */
+    public function getCheckIn()
+    {
+        return $this->check_in;
+    }
+
     public static function findAll() {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare('SELECT * FROM room_booking');
+        $stmt = $conn->prepare('SELECT * FROM room_booking ORDER BY start_date DESC');
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, self::class);
     }
 
     /**
@@ -99,5 +122,14 @@ class RoomBooking
         $stmt = $conn->prepare('SELECT * FROM room_booking WHERE room_booking_id = :id');
         $stmt->execute([':id' => $id]);
         return $stmt->fetchObject(self::class);
+    }
+
+    public static function updateCheck($id) {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare('UPDATE room_booking SET check_in = :ch WHERE room_booking_id = :id');
+        $stmt->execute([
+            ':ch' => self::findOneById($id)->getCheckIn() == 1 ? 0 : 1,
+            ':id' => $id
+        ]);
     }
 }

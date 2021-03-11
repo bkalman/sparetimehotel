@@ -22,10 +22,10 @@
                     </li>
                     <?php if(Jobs::getCurrentUserAccessRight() == 'function.all'): ?>
                         <li class="nav-item">
-                            <a href="index.php?controller=function&action=guests" class="nav-link">Vendégek</a>
+                            <a href="index.php?controller=function&action=reservation" class="nav-link">Foglalások</a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?controller=function&action=employees" class="nav-link">Munkavállalók</a>
+                            <a href="index.php?controller=function&action=employee" class="nav-link">Munkavállalók</a>
                         </li>
                         <li class="nav-item">
                             <a href="index.php?controller=function&action=reports" class="nav-link">Hibabejelentések</a>
@@ -33,13 +33,17 @@
                         <li class="nav-item">
                             <a href="index.php?controller=function&action=restaurant" class="nav-link">Étterem</a>
                         </li>
+                    <?php elseif(Jobs::getCurrentUserAccessRight() == 'function.reservation'): ?>
+                            <li class="nav-item">
+                                <a href="index.php?controller=function&action=reservation" class="nav-link">Foglalások</a>
+                            </li>
                     <?php elseif(Jobs::getCurrentUserAccessRight() == 'function.guests'): ?>
                         <li class="nav-item">
-                            <a href="index.php?controller=function&action=guests" class="nav-link">Vendégek</a>
+                            <a href="index.php?controller=function&action=reservation" class="nav-link">Foglalások</a>
                         </li>
                     <?php elseif(Jobs::getCurrentUserAccessRight() == 'function.employees'): ?>
                         <li class="nav-item">
-                            <a href="index.php?controller=function&action=employees" class="nav-link">Munkavállalók</a>
+                            <a href="index.php?controller=function&action=employee" class="nav-link">Munkavállalók</a>
                         </li>
                     <?php elseif(Jobs::getCurrentUserAccessRight() == 'function.reports'): ?>
                         <li class="nav-item">
@@ -51,10 +55,10 @@
                         </li>
                     <?php endif; ?>
                     <li class="nav-item">
-                        <a href="index.php?controller=hyperlink&action=report" class="nav-link">Hibabejelentés</a>
+                        <a href="index.php?controller=hyperlink&action=errorReport" class="nav-link">Hibabejelentés</a>
                     </li>
                     <li class="nav-item">
-                        <a href="index.php?controller=hyperlink&action=attendanceSheet" class="nav-link">Jelenlétiív</a>
+                        <a href="index.php?controller=function&action=attendanceSheet" class="nav-link">Jelenléti ív</a>
                     </li>
                 <?php else: ?>
                     <li class="nav-item">
@@ -79,7 +83,7 @@
                                         <span class="navbar-text"><?= Employees::getCurrentUser()->getEmail() ?>
                                     </td>
                                     <td>
-                                        <a class="btn btn-danger" href="index.php?controller=employees&action=logout">Kilépés</a></span>
+                                        <a class="btn btn-danger" href="index.php?controller=employees&action=logout">Kilépés</a>
                                     </td>
                                 </tr>
                             </table>

@@ -1,16 +1,5 @@
 <?php
 
-use app\model\AttendanceSheets;
-use app\model\Departments;
-use app\model\Employees;
-use app\model\ErrorReports;
-use app\model\Guest;
-use app\model\JobHistorys;
-use app\model\Jobs;
-use app\model\Menu;
-use app\model\RoomBooking;
-use app\model\Room;
-
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 
@@ -29,7 +18,7 @@ $actionName = !empty($_GET['action'])? 'action'.ucfirst($_GET['action']) : 'acti
 
 $content = '404';
 $style = '';
-if($actionName != 'actionHome') $style = 'css/nav.css';
+if($actionName != 'actionHome') $style = '<link rel="stylesheet" href="css/nav.css">';
 
 if($controllerName == 'HyperlinkController') {
     $controller = new \app\controller\ViewController();
@@ -43,16 +32,29 @@ if($controllerName == 'HyperlinkController') {
     }
 } else if($controllerName == 'FunctionController') {
     $controller = new \app\controller\FunctionsController();
-    if($actionName == 'actionGuests') {
-        $content = $controller->actionGuests();
+    if($actionName == 'actionReservation') {
+        $content = $controller->actionReservation();
     } else if($actionName == 'actionReports') {
         $content = $controller->actionReports();
-    }
-    else if($actionName == 'actionEmployees') {
-        $content = $controller->actionEmployees();
-    }
-    else if($actionName == 'actionRestaurant') {
+    } else if($actionName == 'actionEmployee') {
+        $content = $controller->actionEmployee();
+    } else if($actionName == 'actionRestaurant') {
         $content = $controller->actionRestaurant();
+    } else if($actionName == 'actionAttendanceSheet') {
+        $content = $controller->actionAttendanceSheet();
+    }
+} else if($controllerName == 'ErrorReportController') {
+    $controller = new \app\controller\ErrorReportsController();
+    if($actionName == 'actionDelete') {
+        $content = $controller->actionDelete();
+    } else if($actionName == 'actionUpload') {
+        $content = $controller->actionUpload();
+    }
+} else if($controllerName == 'RoomBookingController') {
+    $controller = new \app\controller\RoomBookingController();
+    if($actionName == 'actionCheckIn') {
+        $content = $controller->actionCheckIn();
     }
 }
+
 include('src/app/view/template/mainTemplate.php');

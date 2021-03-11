@@ -5,7 +5,7 @@ namespace app\model;
 use db\Database;
 use PDO;
 
-class JobHistorys
+class JobHistory
 {
     private $id;
     private $startDate;
@@ -47,7 +47,7 @@ class JobHistorys
 
     /**
      * @param $id
-     * @return JobHistorys
+     * @return JobHistory
      */
     public static function findOneById($id) {
         $conn = Database::getConnection();

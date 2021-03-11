@@ -3,22 +3,21 @@
 
 namespace app\model;
 use db\Database;
-use PDO;
 
-class Guest
+class Guests
 {
-    private $id;
-    private $firstName;
-    private $lastName;
+    private $guest_id;
+    private $first_name;
+    private $last_name;
     private $email;
-    private $phoneNumber;
+    private $phone_number;
 
     /**
      * @return mixed
      */
-    public function getId()
+    public function getGuestId()
     {
-        return $this->id;
+        return $this->guest_id;
     }
 
     /**
@@ -26,7 +25,7 @@ class Guest
      */
     public function getFirstName()
     {
-        return $this->firstName;
+        return $this->first_name;
     }
 
     /**
@@ -34,7 +33,7 @@ class Guest
      */
     public function getLastName()
     {
-        return $this->lastName;
+        return $this->last_name;
     }
 
     /**
@@ -50,16 +49,21 @@ class Guest
      */
     public function getPhoneNumber()
     {
-        return $this->phoneNumber;
+        return $this->phone_number;
     }
 
-    /**
-     * @return array
-     */
+
     public static function findAll() {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare('SELECT * FROM guest');
+        $stmt = $conn->prepare("SELECT * FROM guests");
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, self::class);
+    }
+
+    public static function findOneById($id) {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare("SELECT * FROM guests WHERE guest_id = :id");
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetchObject(self::class);
     }
 }

@@ -200,12 +200,45 @@ form#login {
   }
 }
 
+h1{
+  margin-bottom:50px;
+}
 
-a {
-  color: #F39F71;
-  &:hover {
-    text-decoration: none;
-    color: #f5bfa3;
+table {
+  font-size: 80%;
+  thead > tr {
+    background-color: gray;
+
+    a, th {
+      color: #F39F71;
+      &:hover {
+        text-decoration: none;
+        color: #f5bfa3;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        button.btn {
+          display: block;
+          width:40px;
+          height:40px;
+          margin:0 auto;
+          padding:0;
+          border-radius: 5px;
+          box-shadow: none;
+          &.btn-success:hover {
+            background-color: #07b807;
+          }
+        }
+      }
+
+      &:nth-of-type(even) {
+        background-color: rgba(240, 240, 240);
+      }
+    }
   }
 }
 

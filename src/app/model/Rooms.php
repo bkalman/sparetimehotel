@@ -3,11 +3,10 @@
 
 namespace app\model;
 use db\Database;
-use PDO;
 
-class Room
+class Rooms
 {
-    private $id;
+    private $room_id;
     private $storey;
     private $bed;
     private $extras;
@@ -16,9 +15,9 @@ class Room
     /**
      * @return mixed
      */
-    public function getId()
+    public function getRoomId()
     {
-        return $this->id;
+        return $this->room_id;
     }
 
     /**
@@ -58,18 +57,25 @@ class Room
      */
     public static function findAll() {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare('SELECT * FROM room');
+        $stmt = $conn->prepare('SELECT * FROM rooms');
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_CLASS, self::class);
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, self::class);
+    }
+
+    public static function findAllStorey() {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare('SELECT storey FROM rooms GROUP BY storey');
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS, self::class);
     }
 
     /**
      * @param $id
-     * @return Room
+     * @return Rooms
      */
     public static function findOneById($id) {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare('SELECT * FROM room WHERE room_id = :id');
+        $stmt = $conn->prepare('SELECT * FROM rooms WHERE room_id = :id');
         $stmt->execute([':id' => $id]);
         return $stmt->fetchObject(self::class);
     }
