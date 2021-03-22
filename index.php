@@ -25,10 +25,20 @@ if($controllerName == 'HyperlinkController') {
     $content = !empty($_GET['action'])? $controller->actionIndex($_GET['action']) : $controller->actionIndex('home');
 } else if($controllerName == 'EmployeesController') {
     $controller = new \app\controller\EmployeesController();
-    if($actionName == 'actionLogin') {
+    if($actionName == 'actionLoginIndex') {
+        $content = $controller->actionLoginIndex();
+    } else if($actionName == 'actionLogin') {
         $content = $controller->actionLogin();
     } else if($actionName == 'actionLogout') {
         $content = $controller->actionLogout();
+    } else if($actionName == 'actionInsert') {
+        $content = $controller->actionInsert();
+    } else if($actionName == 'actionFetch') {
+        $content = $controller->actionFetch();
+    } else if($actionName == 'actionDelete') {
+        $content = $controller->actionDelete();
+    } else if($actionName == 'actionUpdate') {
+        $content = $controller->actionUpdate();
     }
 } else if($controllerName == 'FunctionController') {
     $controller = new \app\controller\FunctionsController();
@@ -43,9 +53,12 @@ if($controllerName == 'HyperlinkController') {
     } else if($actionName == 'actionAttendanceSheet') {
         $content = $controller->actionAttendanceSheet();
     }
+
 } else if($controllerName == 'ErrorReportController') {
     $controller = new \app\controller\ErrorReportsController();
-    if($actionName == 'actionDelete') {
+    if($actionName == 'actionInsertIndex') {
+        $content = $controller->actionInsertIndex();
+    } else if($actionName == 'actionDelete') {
         $content = $controller->actionDelete();
     } else if($actionName == 'actionUpload') {
         $content = $controller->actionUpload();

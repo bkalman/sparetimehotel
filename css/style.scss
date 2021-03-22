@@ -39,11 +39,10 @@ footer {
   height:148px;
   width:100%;
   margin-top:-78px;
-  z-index: 3;
   position: relative;
+  z-index: 2;
 }
 #container{
-  z-index: 2;
   width: inherit;
   background-color: #FBFBFB;
   position: relative;
@@ -148,8 +147,12 @@ form#choice {
 #userlog {
   position: absolute;
   right:15px;
+  td {
+    background-color:white;
+  }
   a {
     margin-left: 10px;
+    color: white;
   }
 }
 
@@ -204,8 +207,8 @@ h1{
   margin-bottom:50px;
 }
 
-table {
-  font-size: 80%;
+table, .table {
+  font-size: 70%;
   thead > tr {
     background-color: gray;
 
@@ -221,6 +224,7 @@ table {
   tbody {
     tr {
       td {
+        vertical-align: middle;
         button.btn {
           display: block;
           width:40px;
@@ -234,11 +238,46 @@ table {
           }
         }
       }
-
       &:nth-of-type(even) {
-        background-color: rgba(240, 240, 240);
+        background-color: rgba(240,240,240);
+      }
+      &:nth-of-type(odd) {
+        background-color: #fbfbfb;
       }
     }
+  }
+}
+
+.modal-dialog {
+  top:100px;
+  .form-group {
+    position: relative;
+    label {
+      font-size: 16px;
+      position: absolute;
+      background-color: white;
+      padding:0 3px;
+      left:10px;
+      top:6px;
+      transition: all .2s;
+      cursor: text;
+
+    }
+    .labelUp {
+       top:-15px;
+       font-size: 13px;
+
+    }
+  }
+}
+.labelColor {
+  color:#80bdff;
+}
+
+@media (max-width: 991px) {
+  #userlog {
+    position: static;
+    right:15px;
   }
 }
 
@@ -251,6 +290,29 @@ table {
       > span {
         left: 300px;
         font-size: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px){
+  #house {
+    background-size: 105px;
+    height:105px;
+    margin-top:-110px;
+  }
+  #container{
+    top:-50px;
+  }
+  #title {
+    width: 100%;
+    > h1 {
+      font-size: 50px;
+
+      > span {
+        left: 200px;
+        bottom:45px;
+        font-size: 30px;
       }
     }
   }

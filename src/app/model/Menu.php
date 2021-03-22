@@ -8,9 +8,8 @@ class Menu
 {
     private $menu_id;
     private $name;
-    private $allergens;
-    private $title;
     private $price;
+    private $current;
 
     /**
      * @return mixed
@@ -31,25 +30,17 @@ class Menu
     /**
      * @return mixed
      */
-    public function getAllergens()
-    {
-        return $this->allergens;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCurrent()
+    {
+        return $this->current;
     }
 
 

@@ -102,7 +102,6 @@ class ErrorReports
             ':status' => $this->status,
             ':report' => $this->report
         ]);
-
         if($stmt) {
           $this->report_id = $conn->lastInsertId();
         }

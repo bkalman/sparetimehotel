@@ -8,7 +8,6 @@ class MainController
 {
     protected $controllerName = '';
     protected $title = '';
-
     protected function render($view,$data = []) {
         extract($data);
         ob_start();

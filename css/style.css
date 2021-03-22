@@ -48,12 +48,11 @@ footer p {
   height: 148px;
   width: 100%;
   margin-top: -78px;
-  z-index: 3;
   position: relative;
+  z-index: 2;
 }
 
 #container {
-  z-index: 2;
   width: inherit;
   background-color: #FBFBFB;
   position: relative;
@@ -156,8 +155,12 @@ form#choice input[type=number]:focus {
   position: absolute;
   right: 15px;
 }
+#userlog td {
+  background-color: white;
+}
 #userlog a {
   margin-left: 10px;
+  color: white;
 }
 
 form#login input {
@@ -210,20 +213,23 @@ h1 {
   margin-bottom: 50px;
 }
 
-table {
-  font-size: 80%;
+table, .table {
+  font-size: 70%;
 }
-table thead > tr {
+table thead > tr, .table thead > tr {
   background-color: gray;
 }
-table thead > tr a, table thead > tr th {
+table thead > tr a, table thead > tr th, .table thead > tr a, .table thead > tr th {
   color: #F39F71;
 }
-table thead > tr a:hover, table thead > tr th:hover {
+table thead > tr a:hover, table thead > tr th:hover, .table thead > tr a:hover, .table thead > tr th:hover {
   text-decoration: none;
   color: #f5bfa3;
 }
-table tbody tr td button.btn {
+table tbody tr td, .table tbody tr td {
+  vertical-align: middle;
+}
+table tbody tr td button.btn, .table tbody tr td button.btn {
   display: block;
   width: 40px;
   height: 40px;
@@ -232,13 +238,47 @@ table tbody tr td button.btn {
   border-radius: 5px;
   box-shadow: none;
 }
-table tbody tr td button.btn.btn-success:hover {
+table tbody tr td button.btn.btn-success:hover, .table tbody tr td button.btn.btn-success:hover {
   background-color: #07b807;
 }
-table tbody tr:nth-of-type(even) {
+table tbody tr:nth-of-type(even), .table tbody tr:nth-of-type(even) {
   background-color: #f0f0f0;
 }
+table tbody tr:nth-of-type(odd), .table tbody tr:nth-of-type(odd) {
+  background-color: #fbfbfb;
+}
 
+.modal-dialog {
+  top: 100px;
+}
+.modal-dialog .form-group {
+  position: relative;
+}
+.modal-dialog .form-group label {
+  font-size: 16px;
+  position: absolute;
+  background-color: white;
+  padding: 0 3px;
+  left: 10px;
+  top: 6px;
+  transition: all 0.2s;
+  cursor: text;
+}
+.modal-dialog .form-group .labelUp {
+  top: -15px;
+  font-size: 13px;
+}
+
+.labelColor {
+  color: #80bdff;
+}
+
+@media (max-width: 991px) {
+  #userlog {
+    position: static;
+    right: 15px;
+  }
+}
 @media (max-width: 850px) {
   #title {
     width: 500px;
@@ -249,6 +289,29 @@ table tbody tr:nth-of-type(even) {
   #title > h1 > span {
     left: 300px;
     font-size: 50px;
+  }
+}
+@media (max-width: 500px) {
+  #house {
+    background-size: 105px;
+    height: 105px;
+    margin-top: -110px;
+  }
+
+  #container {
+    top: -50px;
+  }
+
+  #title {
+    width: 100%;
+  }
+  #title > h1 {
+    font-size: 50px;
+  }
+  #title > h1 > span {
+    left: 200px;
+    bottom: 45px;
+    font-size: 30px;
   }
 }
 

@@ -60,19 +60,19 @@ class Jobs
     public static function currentUserCan($x){
         $user = Employees::getCurrentUser();
         if(is_null($user)) return false;
-        if($user->getJob($_SESSION['user_id'])[0] == 'igazgató' && in_array($x,['function.reservation','function.guests','function.report','function.employee','function.restaurant'])){
+        if($user->getJob($_SESSION['employee_id'])[0] == 'igazgató' && in_array($x,['function.reservation','function.guests','function.report','function.employee','function.restaurant'])){
             return true;
-        } else if($user->getJob($_SESSION['user_id'])[0] == 'igazgatóhelyettes' && in_array($x,['function.reservation','function.guests','function.report','function.employee','function.restaurant'])) {
+        } else if($user->getJob($_SESSION['employee_id'])[0] == 'igazgatóhelyettes' && in_array($x,['function.reservation','function.guests','function.report','function.employee','function.restaurant'])) {
             return true;
-        } else if($user->getJob($_SESSION['user_id'])[0] == 'takarító' && in_array($x,[''])){
+        } else if($user->getJob($_SESSION['employee_id'])[0] == 'takarító' && in_array($x,[''])){
             return true;
-        } else if($user->getJob($_SESSION['user_id'])[0] == 'porta' && in_array($x,['function.reservation','function.guests'])){
+        } else if($user->getJob($_SESSION['employee_id'])[0] == 'porta' && in_array($x,['function.reservation','function.guests'])){
             return true;
-        } else if($user->getJob($_SESSION['user_id'])[0] == 'karbantartó' && in_array($x,['function.report'])){
+        } else if($user->getJob($_SESSION['employee_id'])[0] == 'karbantartó' && in_array($x,['function.report'])){
             return true;
-        } else if($user->getJob($_SESSION['user_id'])[0] == 'hr' && in_array($x,['function.employee'])){
+        } else if($user->getJob($_SESSION['employee_id'])[0] == 'hr' && in_array($x,['function.employee'])){
             return true;
-        } else if($user->getJob($_SESSION['user_id'])[0] == 'séf' && in_array($x,['function.restaurant'])){
+        } else if($user->getJob($_SESSION['employee_id'])[0] == 'séf' && in_array($x,['function.restaurant'])){
             return true;
         }
     }
@@ -80,22 +80,22 @@ class Jobs
     public static function getCurrentUserAccessRight(){
         $user = Employees::getCurrentUser();
         if(is_null($user)) return false;
-        if($user->getJob($_SESSION['user_id'])[0] == 'igazgató'){
+        if($user->getJob($_SESSION['employee_id'])[0] == 'igazgató'){
             return 'function.all';
 
-        } else if($user->getJob($_SESSION['user_id'])[0] == 'igazgatóhelyettes'){
+        } else if($user->getJob($_SESSION['employee_id'])[0] == 'igazgatóhelyettes'){
             return 'function.all';
 
-        } else if($user->getJob($_SESSION['user_id'])[0] == 'porta') {
+        } else if($user->getJob($_SESSION['employee_id'])[0] == 'porta') {
             return 'function.reservation';
 
-        } else if($user->getJob($_SESSION['user_id'])[0] == 'karbantartó') {
+        } else if($user->getJob($_SESSION['employee_id'])[0] == 'karbantartó') {
             return 'function.report';
 
-        } else if($user->getJob($_SESSION['user_id'])[0] == 'hr') {
+        } else if($user->getJob($_SESSION['employee_id'])[0] == 'hr') {
             return 'function.employee';
 
-        } else if($user->getJob($_SESSION['user_id'])[0] == 'séf') {
+        } else if($user->getJob($_SESSION['employee_id'])[0] == 'séf') {
             return 'function.restaurant';
         }
     }

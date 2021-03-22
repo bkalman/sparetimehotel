@@ -22,7 +22,7 @@ if(Jobs::currentUserCan('function.report')): ?>
             <?php endif; ?>
             <div class="row">
                 <div class="col-12">
-                    <h1>Munkavállalók</h1>
+                    <h1>Hibabejelentések</h1>
                 </div>
             </div>
             <div class="row">
@@ -53,7 +53,7 @@ if(Jobs::currentUserCan('function.report')): ?>
                         <tbody>
                         <?php foreach($reports as $k => $v): ?>
                             <tr>
-                                <form action="index.php?controller=errorReport&action=delete" method="post">
+                                <form action="insert.php?controller=errorReport&action=delete" method="post">
                                     <input type="hidden" name="reportId" value="<?=$v->getReportId()?>">
                                     <td><?=is_null($v->getStorey()) ? 'földszint' : $v->getStorey()?></td>
                                     <td><?=$v->getPlace()?></td>

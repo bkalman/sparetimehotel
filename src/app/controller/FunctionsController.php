@@ -24,6 +24,6 @@ class FunctionsController extends MainController
     }
 
     public function actionAttendanceSheet(){
-        return $this->render('attendanceSheet',[]);
+        return $this->render('attendanceSheets',[]);
     }
 }

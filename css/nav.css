@@ -11,7 +11,46 @@
   }
   #title > h1 > span {
     left: 300px;
+    bottom: 47px;
     font-size: 50px;
+  }
+}
+@media (max-height: 1000px) and (max-width: 850px) {
+  #title {
+    width: 500px;
+  }
+  #title > h1 {
+    font-size: 80px;
+  }
+  #title > h1 > span {
+    left: 300px;
+    font-size: 50px;
+  }
+}
+@media (max-height: 1000px) and (max-width: 500px) {
+  #title {
+    width: 100%;
+  }
+  #title > h1 {
+    font-size: 45px;
+  }
+  #title > h1 > span {
+    left: 200px;
+    bottom: 45px;
+    font-size: 30px;
+  }
+}
+@media (max-height: 850px) {
+  #title {
+    width: 100%;
+  }
+  #title > h1 {
+    font-size: 40px;
+  }
+  #title > h1 > span {
+    left: 180px;
+    bottom: 45px;
+    font-size: 30px;
   }
 }
 

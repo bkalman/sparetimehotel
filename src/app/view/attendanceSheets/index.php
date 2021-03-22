@@ -4,13 +4,13 @@ use app\model\AttendanceSheets;
 use app\model\Employees;
 
 $sort = !empty($_GET['sort'])? $_GET['sort'] : 'asc';
-$id = !empty($_GET['id'])? $_GET['id'] : $_SESSION['user_id'];
+$id = !empty($_GET['id'])? $_GET['id'] : $_SESSION['employee_id'];
 $date = !empty($_GET['date'])? $_GET['date'] : date('Ym');
 $year = substr($date,0,4);
 $month = substr($date,4);
 /** @var AttendanceSheets[] $attendanceSheets */
 /** @var Employees[] $employees */
-$attendanceSheets = Jobs::currentUserCan('function.employee')? AttendanceSheets::findOneById($id,$sort,$year,$month) : AttendanceSheets::findOneById($_SESSION['user_id'],$sort,$year,$month);
+$attendanceSheets = Jobs::currentUserCan('function.employee')? AttendanceSheets::findOneById($id,$sort,$year,$month) : AttendanceSheets::findOneById($_SESSION['employee_id'],$sort,$year,$month);
 $employees = Employees::findAll();
 
 ?>
