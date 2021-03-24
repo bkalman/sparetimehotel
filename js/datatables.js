@@ -91,7 +91,7 @@ $(document).ready(function(){
         $('.modal-body label[for=password]').text('Új jelszó');
 
         $.ajax({
-            url:"index.php?controller=employees&action=update",
+            url:"index.php?controller=employees&action=fetchSingle",
             method:"POST",
             data:{employee_id:employee_id},
             dataType:"json",

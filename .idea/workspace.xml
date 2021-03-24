@@ -19,48 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf041cf-c2de-4bae-a23a-5c9d14c13cc1" name="Default Changelist" comment="function reservation">
-      <change afterPath="$PROJECT_DIR$/css/datatables.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/datatables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/jquery.datatables.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/reservation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/Allergens.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/MenuAllergens.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/MenuRecommendation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/Recommendation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/view/employees/fetch.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/view/employees/fetchSingle.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/view/employees/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/view/functions/eredet_employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sparetimehotel.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sparetimehotel.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+    <list default="true" id="0bf041cf-c2de-4bae-a23a-5c9d14c13cc1" name="Default Changelist" comment="employees datatables">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/nav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/nav.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/datatables.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/datatables.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/jquery.datatables.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/jquery.datatables.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/controller/EmployeesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/EmployeesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controller/FunctionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/FunctionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/Employees.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Employees.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/ErrorReports.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/ErrorReports.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/Jobs.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Jobs.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/model/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/model/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/employees/fetchSingle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/fetchSingle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/employees/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/functions/attendanceSheet.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/attendanceSheets/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/functions/employee.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/functions/reports.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/errorReports/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/functions/reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/reservations/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/functions/restaurant.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/restaurant/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/functions/sort.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/attendanceSheets/sort.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/restaurant/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/restaurant/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/template/mainTemplate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/template/mainTemplate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/template/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/template/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/template/startTemplate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/template/startTemplate.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +134,9 @@
       <workItem from="1616056415374" duration="15129000" />
       <workItem from="1616143182251" duration="861000" />
       <workItem from="1616341891607" duration="7994000" />
-      <workItem from="1616400669715" duration="3618000" />
+      <workItem from="1616400669715" duration="18572000" />
+      <workItem from="1616484984828" duration="8778000" />
+      <workItem from="1616570009230" duration="17128000" />
     </task>
     <task id="LOCAL-00001" summary="Adding readme">
       <created>1612899776629</created>
@@ -200,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615482106353</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="employees datatables">
+      <created>1616425132414</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1616425132414</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +205,8 @@
     <MESSAGE value="access rights" />
     <MESSAGE value="functions read" />
     <MESSAGE value="function reservation" />
-    <option name="LAST_COMMIT_MESSAGE" value="function reservation" />
+    <MESSAGE value="employees datatables" />
+    <option name="LAST_COMMIT_MESSAGE" value="employees datatables" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1165" y="354" width="778" height="332" key="#File_Watchers" timestamp="1612890785311">
@@ -236,10 +217,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1031" y="344" key="#Notifications/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1615475276417" />
-    <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1616357362059">
+    <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1616600831854">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1616357362059" />
+    <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1616600831854" />
     <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612947008664" />
     <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser/182.-1084.1920.1040/-842.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1614878988697" />
     <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser/182.-1084.1920.1040/0.0.2560.1040/-842.-768.1024.728@0.0.2560.1040" timestamp="1615156596886" />
@@ -249,10 +230,10 @@
     <state x="1081" y="192" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612911133761" />
     <state x="1081" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/182.-1084.1920.1040/-842.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1614865729466" />
     <state x="1081" y="192" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/98.-1080.1920.1040/-926.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1613401034540" />
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1615541402523">
+    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616436581458">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1615541402523" />
+    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1616436581458" />
     <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612990734867" />
     <state x="890" y="46" width="1024" height="935" key="CommitChangelistDialog2" timestamp="1613404687722">
       <screen x="0" y="0" width="2560" height="1040" />
@@ -303,12 +284,16 @@
     </state>
     <state x="781" y="165" key="SettingsEditor/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1615978862369" />
     <state x="781" y="165" key="SettingsEditor/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612898692003" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1615482121720">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1616425134206">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1615482121720" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1616425134206" />
     <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612977320649" />
     <state x="872" y="253" key="Vcs.Push.Dialog.v2/98.-1080.1920.1040/-926.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1613404749790" />
+    <state x="1097" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616445768754">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1097" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1616445768754" />
     <state x="1380" y="51" width="707" height="958" key="dock-window-1" timestamp="1612943252846">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>

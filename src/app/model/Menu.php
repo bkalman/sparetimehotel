@@ -51,15 +51,17 @@ class Menu
         return $stmt->fetchAll(\PDO::FETCH_CLASS,self::class);
     }
 
-    /**
-     * @param $id
-     * @return mixed
-     */
-
     public static function findOneById($id) {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare("SELECT * FROM menu WHERE menu_id = ?");
+        $stmt = $conn->prepare("SELECT * FROM menu WHERE menu_id LIKE ?");
         $stmt->execute([$id]);
         return $stmt->fetchObject(self::class);
+    }
+
+    public static function findOneByName($name) {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare("SELECT menu_id FROM menu WHERE name LIKE ?");
+        $stmt->execute(['"%'.$name.'%"']);
+        return $stmt->fetch();
     }
 }

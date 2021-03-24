@@ -30,8 +30,6 @@ if(Jobs::currentUserCan('function.employee')): ?>
 
         </div>
     </div>
-    </body>
-    </html>
 </section>
 <div id="userModal" class="modal fade">
     <div class="modal-dialog">

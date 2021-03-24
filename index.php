@@ -37,8 +37,8 @@ if($controllerName == 'HyperlinkController') {
         $content = $controller->actionFetch();
     } else if($actionName == 'actionDelete') {
         $content = $controller->actionDelete();
-    } else if($actionName == 'actionUpdate') {
-        $content = $controller->actionUpdate();
+    } else if($actionName == 'actionFetchSingle') {
+        $content = $controller->actionFetchSingle();
     }
 } else if($controllerName == 'FunctionController') {
     $controller = new \app\controller\FunctionsController();
@@ -68,6 +68,19 @@ if($controllerName == 'HyperlinkController') {
     if($actionName == 'actionCheckIn') {
         $content = $controller->actionCheckIn();
     }
+} else if($controllerName == 'RestaurantController') {
+    $controller = new \app\controller\RestaurantController();
+    if($actionName == "actionOrderInsert") {
+        $content = $controller->actionOrderInsert();
+    } else if($actionName == 'actionFetch') {
+        $content = $controller->actionFetch();
+    } else if($actionName == 'actionDelete') {
+        $content = $controller->actionDelete();
+    } else if($actionName == 'actionFetchSingle') {
+        $content = $controller->actionFetchSingle();
+    }
 }
 
 include('src/app/view/template/mainTemplate.php');
+
+

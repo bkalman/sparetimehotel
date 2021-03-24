@@ -138,11 +138,11 @@ class EmployeesController extends MainController
         header('location: src/app/view/employees/fetch.php');
     }
 
-    public function actionUpdate() {
+    public function actionFetchSingle() {
         $conn = Database::getConnection();
         if(!empty($_POST["employee_id"]))
         {
-            $output = array();
+            $output = [];
             $stmt = $conn->prepare("SELECT * FROM employees WHERE employee_id = ? LIMIT 1");
             $stmt->execute([$_POST["employee_id"]]);
             $result = $stmt->fetchAll();
