@@ -18,6 +18,8 @@ class RoomBooking
     private $dinner;
     private $check_in;
 
+    private $loadable = ['guest_id','email','phone_number','adult','child','room_id','start_date','end_date'];
+
     /**
      * @return mixed
      */
@@ -131,5 +133,53 @@ class RoomBooking
             ':ch' => self::findOneById($id)->getCheckIn() == 1 ? 0 : 1,
             ':id' => $id
         ]);
+    }
+
+    public function insert() {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare("INSERT INTO room_booking(room_booking_id,guest_id,email,phone_number,adult,child,room_id,start_date,end_date) VALUES (:room_booking_id,:guest_id,:email,:phone_number,:adult,:child,:room_id,:start_date,:end_date)");
+        $stmt->execute([
+            ':room_booking_id' => $this->room_booking_id,
+            ':guest_id' => $this->guest_id,
+            ':email' => $this->email,
+            ':phone_number' => $this->phone_number,
+            ':adult' => $this->adult,
+            ':child' => $this->child,
+            ':room_id' => $this->room_id,
+            ':start_date' => $this->start_date,
+            ':end_date' => $this->end_date,
+        ]);
+        if($stmt) {
+            $this->room_booking_id = $conn->lastInsertId();
+        }
+        return self::findOneById($conn->lastInsertId());
+    }
+
+    public static function update($data) {
+        $conn = Database::getConnection();
+
+        $stmt = $conn->prepare("UPDATE room_booking SET name = :name,price = :price,current = :current WHERE room_booking_id = :room_booking_id");
+        $stmt->execute([
+            ':name' => $data['name'],
+            ':price' => $data['price'],
+            ':current' => $data['current'],
+            ':room_booking_id' => $data['room_booking_id'],
+        ]);
+
+        return $stmt;
+    }
+
+    public static function delete($id) {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare("DELETE FROM room_booking WHERE room_booking_id = ?");
+        $stmt->execute([$id]);
+    }
+
+    public static function getRowCount()
+    {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare("SELECT * FROM room_booking");
+        $stmt->execute();
+        return $stmt->rowCount();
     }
 }

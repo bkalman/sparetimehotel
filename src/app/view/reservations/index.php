@@ -2,90 +2,120 @@
 use app\model\Jobs;
 use app\model\Guests;
 use app\model\RoomBooking;
+use app\model\Menu;
+use app\model\Allergens;
+use app\model\Recommendation;
 
 $guests = Guests::findAll();
 $reservations = RoomBooking::findAll();
-
+$menu = Menu::findAll();
+$allergens = Allergens::findAll();
+$recommendation = Recommendation::findAll();
 /** @var RoomBooking[] $reservations */
-if(Jobs::currentUserCan('function.reservation')): ?>
-        <section id="container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <h1>Foglalások</h1>
+/** @var Menu[] $menu */
+/** @var Allergens[] $allergens */
+/** @var Recommendation[] $recommendation */
+if(Jobs::currentUserCan('function.reservations')): ?>
+    <section id="container">
+        <div class="container">
+            <div class="container box">
+                <div class="table-responsive">
+                    <br>
+                    <div align="right">
+                        <button type="button" id="add_button" data-toggle="modal" data-target="#reservationsModal" class="btn btn-info btn-lg">Felvétel</button>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">
-                                    Sorszám
-                                </th>
-                                <th scope="col">
-                                    Név
-                                </th>
-                                <th scope="col">
-                                    E-mail
-                                </th>
-                                <th scope="col">
-                                    Telefonszám
-                                </th>
-                                <th scope="col">
-                                    Fő
-                                </th>
-                                <th scope="col">
-                                    Szobaszám
-                                </th>
-                                <th scope="col">
-                                    Bejelentkezés
-                                </th>
-                                <th scope="col">
-                                    Kijelentkezés
-                                </th>
-                                <th scope="col" style="width: 100px">
-                                    Check In
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach($reservations as $k => $v): ?>
-                                <tr>
-                                    <form action="index.php?controller=roomBooking&action=checkIn" method="post">
-                                        <input type="hidden" name="roomBookingId" value="<?=$v->getRoomBookingId()?>">
-                                        <td><?=$v->getRoomBookingId()?></td>
-                                        <td><?=Guests::findOneById($v->getGuestId())->getLastName()?> <?=Guests::findOneById($v->getGuestId())->getFirstName()?></td>
-                                        <td><?=Guests::findOneById($v->getGuestId())->getEmail()?></td>
-                                        <td><?=Guests::findOneById($v->getGuestId())->getPhoneNumber()?></td>
-                                        <td><?=$v->getAdult()?> felnőtt, <?=$v->getChild()?> gyerek</td>
-                                        <td><?=$v->getRoomId()?></td>
-                                        <td><?=$v->getStartDate()?></td>
-                                        <td><?=$v->getEndDate()?></td>
-                                        <td>
-                                            <?php if(date('Y-m-d') <= date('Y-m-d',strtotime($v->getStartDate()))): ?>
-                                                <?php if($v->getCheckIn() == 1): ?>
-                                                <button type="submit" class="btn btn-success">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-                                                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                                                    </svg>
-                                                </button>
-                                                <?php elseif($v->getCheckIn() == 0):?>
-                                                    <button type="submit" class="btn btn-danger">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                                                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                                                        </svg>
-                                                    </button>
-                                                <?php endif; ?>
-                                            <?php endif; ?>
-                                        </td>
-                                    </form>
-                                </tr
-                            <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                    <br><br>
+                    <table id="reservations_data" class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Sorszám</th>
+                            <th scope="col">Név</th>
+                            <th scope="col">Név</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Telefonszám</th>
+                            <th scope="col">Fő</th>
+                            <th scope="col">Szobaszám</th>
+                            <th scope="col">Bejelentkezés</th>
+                            <th scope="col">Kijelentkezés</th>
+                            <th scope="col" style="width: 100px">Szerkesztés</th>
+                            <th scope="col" style="width: 100px">Check In</th>
+                        </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <div id="reservationsModal" class="modal fade">
+        <div class="modal-dialog">
+            <form method="post" id="reservations_form" enctype="multipart/form-data">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Étel hozzáadás</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="last_name">Név</label>
+                                <input type="text" name="reservations[last_name]" id="last_name" class="form-control">
+                                <div class="invalid-feedback">Nincsen kitöltve!</div>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="first_name">Név</label>
+                                <input type="text" name="reservations[first_name]" id="first_name" class="form-control">
+                                <div class="invalid-feedback">Nincsen kitöltve!</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="text" name="reservations[email]" id="email" class="form-control">
+                            <div class="invalid-feedback">Nincsen kitöltve!</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone_number">Telefonszám</label>
+                            <input type="number" name="reservations[phone_number]" id="phone_number" class="form-control">
+                            <div class="invalid-feedback">Nincsen kitöltve!</div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-4">
+                                <label for="adult">Felnőtt</label>
+                                <input type="number" name="reservations[adult]" id="adult" class="form-control">
+                                <div class="invalid-feedback">Nincsen kitöltve!</div>
+                            </div>
+                            <div class="form-group col-4">
+                                <label for="child">Gyermek</label>
+                                <input type="number" name="reservations[child]" id="child" class="form-control">
+                                <div class="invalid-feedback">Nincsen kitöltve!</div>
+                            </div>
+                            <div class="form-group col-4">
+                                <label for="room_id">Szobaszám</label>
+                                <input type="number" name="reservations[room_id]" id="room_id" class="form-control">
+                                <div class="invalid-feedback">Nincsen kitöltve!</div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="start_date">Bejelentkezés</label>
+                                <input type="date" name="reservations[start_date]" id="start_date" class="form-control">
+                                <div class="invalid-feedback">Nincsen kitöltve!</div>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="end_date">Kijelentkezés</label>
+                                <input type="date" name="reservations[end_date]" id="end_date" class="form-control">
+                                <div class="invalid-feedback">Nincsen kitöltve!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="reservations[room_booking_id]" id="room_booking_id">
+                        <input type="hidden" name="operation" id="operation">
+                        <input type="submit" name="action" id="action" class="btn btn-success" value="Hozzáad">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Kilépés</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 <?php endif; ?>

@@ -24,4 +24,19 @@ class Allergens
     {
         return $this->name;
     }
+
+    public static function findAll() {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare('SELECT * FROM allergens');
+        $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_CLASS,self::class);
+    }
+
+    public static function findOneById($id)
+    {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare('SELECT * FROM allergens WHERE allergen_id = ?');
+        $stmt->execute([$id]);
+        return $stmt->fetchObject(self::class);
+    }
 }

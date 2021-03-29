@@ -14,9 +14,15 @@ $menu = Menu::findAll();
 if(Jobs::currentUserCan('function.restaurant')): ?>
     <section id="container">
         <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h3 id="restaurant_orders"><a href="index.php?controller=hyperlink&action=orders">Rendelések</a></h3>
+                </div>
+                <div class="col-6">
+                    <h3 id="restaurant_menu"><a href="index.php?controller=hyperlink&action=menu">Menü</a></h3>
+                </div>
+            </div>
             <div class="container box">
-                <h1>Étterem</h1>
-                <br>
                 <div class="table-responsive">
                     <br>
                     <div align="right">

@@ -11,6 +11,8 @@ class Menu
     private $price;
     private $current;
 
+    private $loadable = ['name','price','current'];
+
     /**
      * @return mixed
      */
@@ -58,10 +60,55 @@ class Menu
         return $stmt->fetchObject(self::class);
     }
 
-    public static function findOneByName($name) {
+    public function load($data) {
+        foreach ($this->loadable as $item) {
+            if(array_key_exists($item,$data) && !empty($data[$item])) {
+                $this->$item = $data[$item];
+            }
+        }
+    }
+
+    public function insert() {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare("SELECT menu_id FROM menu WHERE name LIKE ?");
-        $stmt->execute(['"%'.$name.'%"']);
-        return $stmt->fetch();
+        $stmt = $conn->prepare("INSERT INTO menu(name,price,current) VALUES (:name,:price,:current)");
+        $stmt->execute([
+            ':name' => $this->name,
+            ':price' => $this->price,
+            ':current' => $this->current,
+        ]);
+        if($stmt) {
+            $this->menu_id = $conn->lastInsertId();
+        }
+        return self::findOneById($conn->lastInsertId());
+    }
+
+    public static function update($data) {
+        $conn = Database::getConnection();
+
+        $stmt = $conn->prepare("UPDATE menu SET name = :name,price = :price,current = :current WHERE menu_id = :menu_id");
+        $stmt->execute([
+            ':name' => $data['name'],
+            ':price' => $data['price'],
+            ':current' => $data['current'],
+            ':menu_id' => $data['menu_id'],
+        ]);
+
+        return $stmt;
+    }
+
+    public static function delete($id) {
+        $conn = Database::getConnection();
+        MenuAllergens::deleteAll($id);
+        MenuRecommendation::delete($id);
+        $stmt = $conn->prepare("DELETE FROM menu WHERE menu_id = ?");
+        $stmt->execute([$id]);
+    }
+
+    public static function getRowCount()
+    {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare("SELECT * FROM menu");
+        $stmt->execute();
+        return $stmt->rowCount();
     }
 }

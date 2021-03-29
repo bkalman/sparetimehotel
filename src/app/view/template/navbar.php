@@ -31,7 +31,7 @@
                             <a href="index.php?controller=hyperlink&action=errorReports" class="nav-link">Hibabejelentések</a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?controller=hyperlink&action=restaurant" class="nav-link">Étterem</a>
+                            <a href="index.php?controller=hyperlink&action=orders" class="nav-link">Étterem</a>
                         </li>
                     <?php elseif(Jobs::getCurrentUserAccessRight() == 'function.reservation'): ?>
                             <li class="nav-item">

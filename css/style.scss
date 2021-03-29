@@ -274,6 +274,26 @@ table, .table {
   color:#80bdff;
 }
 
+#restaurant_orders{
+  text-align: right;
+}
+#restaurant_menu{
+  text-align: left;
+}
+#restaurant_orders > a, #restaurant_menu > a {
+  color:#2b2b2b;
+  cursor:pointer;
+}
+#restaurant_orders > a:hover, #restaurant_menu > a:hover  {
+  text-decoration: underline;
+}
+
+input[type=checkbox] {
+  width: 15px;
+  height: 15px;
+  margin-top:9px;
+}
+
 @media (max-width: 991px) {
   #userlog {
     position: static;

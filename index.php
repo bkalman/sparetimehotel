@@ -68,10 +68,32 @@ if($controllerName == 'HyperlinkController') {
     if($actionName == 'actionCheckIn') {
         $content = $controller->actionCheckIn();
     }
-} else if($controllerName == 'RestaurantController') {
-    $controller = new \app\controller\RestaurantController();
+} else if($controllerName == 'OrdersController') {
+    $controller = new \app\controller\OrdersController();
     if($actionName == "actionOrderInsert") {
         $content = $controller->actionOrderInsert();
+    } else if($actionName == 'actionFetch') {
+        $content = $controller->actionFetch();
+    } else if($actionName == 'actionDelete') {
+        $content = $controller->actionDelete();
+    } else if($actionName == 'actionFetchSingle') {
+        $content = $controller->actionFetchSingle();
+    }
+} else if($controllerName == 'MenuController') {
+    $controller = new \app\controller\MenuController();
+    if($actionName == "actionMenuInsert") {
+        $content = $controller->actionMenuInsert();
+    } else if($actionName == 'actionFetch') {
+        $content = $controller->actionFetch();
+    } else if($actionName == 'actionDelete') {
+        $content = $controller->actionDelete();
+    } else if($actionName == 'actionFetchSingle') {
+        $content = $controller->actionFetchSingle();
+    }
+} else if($controllerName == 'ReservationsController') {
+    $controller = new \app\controller\ReservationsController();
+    if($actionName == "actionInsert") {
+        $content = $controller->actionInsert();
     } else if($actionName == 'actionFetch') {
         $content = $controller->actionFetch();
     } else if($actionName == 'actionDelete') {
