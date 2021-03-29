@@ -2,6 +2,7 @@
 
 
 namespace app\model;
+
 use db\Database;
 
 class RoomBooking
@@ -110,7 +111,7 @@ class RoomBooking
 
     public static function findAll() {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare('SELECT * FROM room_booking ORDER BY start_date DESC');
+        $stmt = $conn->prepare('SELECT * FROM room_booking');
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, self::class);
     }
@@ -121,28 +122,24 @@ class RoomBooking
      */
     public static function findOneById($id) {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare('SELECT * FROM room_booking WHERE room_booking_id = :id');
-        $stmt->execute([':id' => $id]);
+        $stmt = $conn->prepare('SELECT * FROM room_booking WHERE room_booking_id = ?');
+        $stmt->execute([$id]);
         return $stmt->fetchObject(self::class);
     }
 
-    public static function updateCheck($id) {
-        $conn = Database::getConnection();
-        $stmt = $conn->prepare('UPDATE room_booking SET check_in = :ch WHERE room_booking_id = :id');
-        $stmt->execute([
-            ':ch' => self::findOneById($id)->getCheckIn() == 1 ? 0 : 1,
-            ':id' => $id
-        ]);
+    public function load($data) {
+        foreach ($this->loadable as $item) {
+            if(array_key_exists($item,$data) && !empty($data[$item])) {
+                $this->$item = $data[$item];
+            }
+        }
     }
 
     public function insert() {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare("INSERT INTO room_booking(room_booking_id,guest_id,email,phone_number,adult,child,room_id,start_date,end_date) VALUES (:room_booking_id,:guest_id,:email,:phone_number,:adult,:child,:room_id,:start_date,:end_date)");
+        $stmt = $conn->prepare("INSERT INTO room_booking(guest_id,adult,child,room_id,start_date,end_date,check_in) VALUES (:guest_id,:adult,:child,:room_id,:start_date,:end_date,0)");
         $stmt->execute([
-            ':room_booking_id' => $this->room_booking_id,
             ':guest_id' => $this->guest_id,
-            ':email' => $this->email,
-            ':phone_number' => $this->phone_number,
             ':adult' => $this->adult,
             ':child' => $this->child,
             ':room_id' => $this->room_id,
@@ -157,13 +154,26 @@ class RoomBooking
 
     public static function update($data) {
         $conn = Database::getConnection();
-
-        $stmt = $conn->prepare("UPDATE room_booking SET name = :name,price = :price,current = :current WHERE room_booking_id = :room_booking_id");
+        $stmt = $conn->prepare("UPDATE room_booking SET guest_id = :guest_id,adult = :adult,child = :child,room_id = :room_id,start_date = :start_date,end_date = :end_date WHERE room_booking_id = :room_booking_id");
         $stmt->execute([
-            ':name' => $data['name'],
-            ':price' => $data['price'],
-            ':current' => $data['current'],
+            ':guest_id' => $data['guest_id'],
+            ':adult' => $data['adult'],
+            ':child' => $data['child'],
+            ':room_id' => $data['room_id'],
+            ':start_date' => $data['start_date'],
+            ':end_date' => $data['end_date'],
             ':room_booking_id' => $data['room_booking_id'],
+        ]);
+        return $stmt;
+    }
+
+    public static function check($id) {
+        $conn = Database::getConnection();
+
+        $stmt = $conn->prepare("UPDATE room_booking SET check_in = :check_in WHERE room_booking_id = :room_booking_id");
+        $stmt->execute([
+            ':check_in' => self::findOneById($id)->getCheckIn() == 0 ? 1 : 0,
+            ':room_booking_id' => $id,
         ]);
 
         return $stmt;

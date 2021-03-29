@@ -65,8 +65,27 @@ if($controllerName == 'HyperlinkController') {
     }
 } else if($controllerName == 'RoomBookingController') {
     $controller = new \app\controller\RoomBookingController();
-    if($actionName == 'actionCheckIn') {
+    if($actionName == "actionInsert") {
+        $content = $controller->actionInsert();
+    } else if($actionName == 'actionFetch') {
+        $content = $controller->actionFetch();
+    } else if($actionName == 'actionCheck') {
+        $content = $controller->actionCheck();
+    } else if($actionName == 'actionFetchSingle') {
+        $content = $controller->actionFetchSingle();
+    }
+} else if($controllerName == 'GuestsController') {
+    $controller = new \app\controller\GuestsController();
+    if($actionName == "actionInsert") {
+        $content = $controller->actionInsert();
+    } else if($actionName == 'actionFetch') {
+        $content = $controller->actionFetch();
+    } else if($actionName == 'actionCheckIn') {
         $content = $controller->actionCheckIn();
+    } else if($actionName == 'actionFetchSingle') {
+        $content = $controller->actionFetchSingle();
+    } else if($actionName == 'actionFindAll') {
+        $content = $controller->actionFindAll();
     }
 } else if($controllerName == 'OrdersController') {
     $controller = new \app\controller\OrdersController();
@@ -90,19 +109,7 @@ if($controllerName == 'HyperlinkController') {
     } else if($actionName == 'actionFetchSingle') {
         $content = $controller->actionFetchSingle();
     }
-} else if($controllerName == 'ReservationsController') {
-    $controller = new \app\controller\ReservationsController();
-    if($actionName == "actionInsert") {
-        $content = $controller->actionInsert();
-    } else if($actionName == 'actionFetch') {
-        $content = $controller->actionFetch();
-    } else if($actionName == 'actionDelete') {
-        $content = $controller->actionDelete();
-    } else if($actionName == 'actionFetchSingle') {
-        $content = $controller->actionFetchSingle();
-    }
 }
-
 include('src/app/view/template/mainTemplate.php');
 
 

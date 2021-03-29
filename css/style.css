@@ -237,6 +237,7 @@ table tbody tr td button.btn, .table tbody tr td button.btn {
   padding: 0;
   border-radius: 5px;
   box-shadow: none;
+  text-align: center;
 }
 table tbody tr td button.btn.btn-success:hover, .table tbody tr td button.btn.btn-success:hover {
   background-color: #07b807;
@@ -294,6 +295,10 @@ input[type=checkbox] {
   width: 15px;
   height: 15px;
   margin-top: 9px;
+}
+
+#newUser {
+  margin: 0;
 }
 
 @media (max-width: 991px) {

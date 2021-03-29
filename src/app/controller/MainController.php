@@ -22,9 +22,12 @@ class MainController
         echo '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>';
         echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>';
         echo '<script src="js/jquery.datatables.min.js"></script>';
-        echo '<script src="js/reservation.js"></script>';
 
-        echo "<script src='src/app/view/{$this->controllerName}/js/datatables.js'></script>";
+        $files = scandir("src/app/view/{$this->controllerName}/js");
+        foreach ($files as $file) {
+            if($file != '.' && $file != '..')
+            echo "<script src='src/app/view/{$this->controllerName}/js/{$file}'></script>";
+        }
         return ob_get_clean();
     }
 }

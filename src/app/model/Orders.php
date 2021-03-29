@@ -70,6 +70,16 @@ class Orders
         return $stmt->fetchAll(\PDO::FETCH_CLASS,self::class);
     }
 
+    public static function findOne($data) {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare("SELECT * FROM orders WHERE guest_id = :guest_id AND date = :date");
+        $stmt->execute([
+            ':guest_id' => $data[0],
+            ':date' => $data[1],
+        ]);
+        return $stmt->fetchObject(self::class);
+    }
+
     public function load($data) {
         foreach ($this->loadable as $item) {
             if(array_key_exists($item,$data) && !empty($data[$item])) {

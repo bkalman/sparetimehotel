@@ -19,34 +19,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf041cf-c2de-4bae-a23a-5c9d14c13cc1" name="Default Changelist" comment="restaurant orders">
-      <change afterPath="$PROJECT_DIR$/src/app/controller/MenuController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/controller/ReservationsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/view/menu/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/view/menu/js/datatables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/view/orders/js/datatables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/view/reservations/js/datatables.js" afterDir="false" />
+    <list default="true" id="0bf041cf-c2de-4bae-a23a-5c9d14c13cc1" name="Default Changelist" comment="restaurant menu">
+      <change afterPath="$PROJECT_DIR$/src/app/controller/GuestsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/view/errorReports/js/datatables.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/js/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/reservation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/home/js/reservation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controller/EmployeesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/EmployeesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/Allergens.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Allergens.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/MenuAllergens.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/MenuAllergens.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/MenuRecommendation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/MenuRecommendation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/Recommendation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Recommendation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controller/ReservationsController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/model/Guests.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Guests.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/model/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Orders.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/model/RoomBooking.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/RoomBooking.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/employees/fetch.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/fetch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/employees/fetchSingle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/fetchSingle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/errorReports/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/errorReports/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/orders/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/orders/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/reservations/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/reservations/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/restaurant/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/orders/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/template/endTemplate.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/template/mainTemplate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/template/mainTemplate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/template/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/template/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/template/startTemplate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/reservations/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/reservations/js/datatables.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +85,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/app/controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/app/view/errorReports/js" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
@@ -101,18 +93,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\home\js" />
       <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view" />
       <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\employees\js" />
       <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\js" />
       <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\attendanceSheets" />
-      <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\restaurant" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\errorReports\js" />
       <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\controller" />
       <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\reservations\js" />
       <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\menu" />
       <recent name="C:\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\controller\functions" />
-      <recent name="C:\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\controller\jobs" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -155,7 +147,7 @@
       <workItem from="1616661069404" duration="29992000" />
       <workItem from="1616741816215" duration="9418000" />
       <workItem from="1616953480617" duration="6497000" />
-      <workItem from="1617001998619" duration="5280000" />
+      <workItem from="1617001998619" duration="30421000" />
     </task>
     <task id="LOCAL-00001" summary="Adding readme">
       <created>1612899776629</created>
@@ -206,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616603062334</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="restaurant menu">
+      <created>1617011582112</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617011582112</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,7 +232,8 @@
     <MESSAGE value="function reservation" />
     <MESSAGE value="employees datatables" />
     <MESSAGE value="restaurant orders" />
-    <option name="LAST_COMMIT_MESSAGE" value="restaurant orders" />
+    <MESSAGE value="restaurant menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="restaurant menu" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1165" y="354" width="778" height="332" key="#File_Watchers" timestamp="1612890785311">
@@ -258,10 +258,10 @@
     <state x="1081" y="192" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612911133761" />
     <state x="1081" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/182.-1084.1920.1040/-842.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1614865729466" />
     <state x="1081" y="192" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/98.-1080.1920.1040/-926.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1613401034540" />
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616661930811">
+    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617033860612">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1616661930811" />
+    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1617033860612" />
     <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612990734867" />
     <state x="890" y="46" width="1024" height="935" key="CommitChangelistDialog2" timestamp="1613404687722">
       <screen x="0" y="0" width="2560" height="1040" />
@@ -287,10 +287,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="950" y="78" key="Github.UntrackedFilesDialog/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612899075683" />
-    <state x="1526" y="211" key="NewPhpClassDialog" timestamp="1616694697046">
+    <state x="1526" y="211" key="NewPhpClassDialog" timestamp="1617029867965">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1526" y="211" key="NewPhpClassDialog/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1616694697046" />
+    <state x="1526" y="211" key="NewPhpClassDialog/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1617029867965" />
     <state x="1526" y="211" key="NewPhpClassDialog/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612955748844" />
     <state x="1526" y="211" key="NewPhpClassDialog/182.-1084.1920.1040/-842.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1615238728936" />
     <state x="1526" y="211" key="NewPhpClassDialog/182.-1084.1920.1040/0.0.2560.1040/-842.-768.1024.728@0.0.2560.1040" timestamp="1615155328999" />
@@ -312,10 +312,10 @@
     </state>
     <state x="781" y="165" key="SettingsEditor/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1615978862369" />
     <state x="781" y="165" key="SettingsEditor/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612898692003" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1616603068368">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1617011586590">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1616603068368" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1617011586590" />
     <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612977320649" />
     <state x="872" y="253" key="Vcs.Push.Dialog.v2/98.-1080.1920.1040/-926.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1613404749790" />
     <state x="1097" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616757268970">

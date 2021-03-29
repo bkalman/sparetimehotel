@@ -89,7 +89,7 @@ class EmployeesController extends MainController
         $conn = Database::getConnection();
         $query = '';
         $query .= 'SELECT * FROM jobs INNER JOIN employees ON jobs.job_id = employees.job_id ';
-        $order = ['last_name','first_name','title'];
+        $order = ['last_name','title'];
         if (isset($_POST["search"]["value"])) {
             $query .= 'WHERE first_name LIKE "%' . $_POST["search"]["value"] . '%" ';
             $query .= 'OR title LIKE "%' . $_POST["search"]["value"] . '%" ';

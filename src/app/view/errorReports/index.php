@@ -1,8 +1,17 @@
 <?php
 use app\model\Jobs;
 use app\model\ErrorReports;
+use app\model\Rooms;
 
 $reports = ErrorReports::findAll();
+$rooms = Rooms::findAll();
+$storeys = Rooms::findAllStorey();
+
+$types = ['szoba' => 'szoba','folyoso' => 'folyosó','hall' => 'hall','iroda' => 'iroda','konyha' => 'konyha','etkezo' => 'étkező','kert' => 'kert'];
+$status = ['tonkrement' => 'tönkrement','meghibasodott' => 'meghibásodott','egyeb' => 'egyéb'];
+
+/** @var Rooms[] $rooms */
+/** @var Rooms[] $storey */
 /** @var ErrorReports[] $reports */
 if(Jobs::currentUserCan('function.report')): ?>
     <section id="container">
@@ -29,51 +38,69 @@ if(Jobs::currentUserCan('function.report')): ?>
                 <div class="col-12">
                     <table class="table">
                         <thead>
-                        <tr>
-                            <th scope="col">
-                                Emelet
-                            </th>
-                            <th scope="col"">
-                                Hely
-                            </th>
-                            <th scope="col"">
-                                Szobaszám
-                            </th>
-                            <th scope="col">
-                                Státusz
-                            </th>
-                            <th scope="col">
-                                Üzenet
-                            </th>
-                            <th scope="col" style="width: 40px">
-                                Kész?
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php foreach($reports as $k => $v): ?>
                             <tr>
-                                <form action="insert.php?controller=errorReport&action=delete" method="post">
-                                    <input type="hidden" name="reportId" value="<?=$v->getReportId()?>">
-                                    <td><?=is_null($v->getStorey()) ? 'földszint' : $v->getStorey()?></td>
-                                    <td><?=$v->getPlace()?></td>
-                                    <td><?=$v->getRoomId()?></td>
-                                    <td><?=$v->getStatus()?></td>
-                                    <td><?=$v->getReport()?></td>
-                                    <td>
-                                        <button type="submit" class="btn btn-success">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-                                                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                                            </svg>
-                                        </button>
-                                    </td>
-                                </form>
-                            </tr
-                        <?php endforeach; ?>
-                        </tbody>
+                                <th scope="col">Emelet</th>
+                                <th scope="col"">Hely</th>
+                                <th scope="col"">Szobaszám</th>
+                                <th scope="col">Státusz</th>
+                                <th scope="col">Üzenet</th>
+                                <th scope="col" style="width: 40px">Szerkesztés</th>
+                                <th scope="col" style="width: 40px">Kész</th>
+                            </tr>
+                        </thead>
                     </table>
                 </div>
             </div>
         </div>
     </section>
+
+    <div id="errorReportsModal" class="modal fade">
+        <div class="modal-dialog">
+            <form method="post" id="errorReports_form" enctype="multipart/form-data">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Hibabejelentés</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="room_id">Szobaszám</label>
+                        <select name="errorReports[room_id]" id="room_id" class="form-control">
+                            <option>-</option>
+                            <?php foreach ($rooms as $k => $v): ?>
+                                <option value="<?=$v->getRoomId()?>"><?=$v->getRoomId()?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="storey">Emelet<span style="color:red">*</span></label>
+                        <select name="errorReports[storey]" id="storey" class="form-control">
+                            <option value="0">0</option>
+                            <?php foreach ($storeys as $v): ?>
+                                <option value="<?=$v->getStorey()?>"><?=$v->getStorey()?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Státusz<span style="color:red">*</span></label>
+                        <select name="errorReports[status]" id="status" class="form-control">
+                            <?php foreach ($status as $k =>$v): ?>
+                                <option value="<?=$k?>"><?=$v?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="report">Üzenet</label>
+                        <textarea name="errorReports[report]" id="report" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="errorReports[report_id]" id="report_id">
+                        <input type="hidden" name="operation" id="operation">
+                        <input type="submit" name="action" id="action" class="btn btn-success" value="Hozzáad">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Kilépés</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 <?php endif; ?>

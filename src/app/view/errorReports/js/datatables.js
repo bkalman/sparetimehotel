@@ -93,15 +93,11 @@ $(document).ready(function(){
             {
                 $('#reservationsModal').modal('show');
 
-                $('#guest_id').val(data.guest_id);
-                $('#email').val(data.email);
-                $('#phone_number').val(data.phone_number);
-                $('#adult').val(data.adult);
-                $('#child').val(data.child);
-                $('#room_id').val(data.room_id);
-                $('#start_date').val(data.start_date);
-                $('#end_date').val(data.end_date);
-                $('#room_booking_id').val(data.room_booking_id);
+                $('#guest_id').val(data.room_id);
+                $('#guest_id').val(data.storey);
+                $('#guest_id').val(data.status);
+                $('#guest_id').val(data.report);
+                $('#guest_id').val(data.report_id);
 
                 $('#action').val("Változtat");
                 $('#operation').val("Változtat");
