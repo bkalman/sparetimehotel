@@ -12,8 +12,9 @@ class ErrorReports
     private $storey;
     private $status;
     private $report;
+    private $started;
 
-    private $loadable = ['room_id','place','storey','status','report'];
+    private $loadable = ['room_id','place','storey','status','report','started'];
 
     /**
      * @return mixed
@@ -64,6 +65,16 @@ class ErrorReports
     }
 
     /**
+     * @return mixed
+     */
+    public function getStarted()
+    {
+        return $this->started;
+    }
+
+
+
+    /**
      * @return array
      */
     public static function findAll() {
@@ -79,7 +90,7 @@ class ErrorReports
      */
     public static function findOneById($id) {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare("SELECT * FROM error_reports WHERE room_id = ?");
+        $stmt = $conn->prepare("SELECT * FROM error_reports WHERE report_id = ?");
         $stmt->execute([$id]);
         return $stmt->fetchObject(self::class);
     }
@@ -94,27 +105,38 @@ class ErrorReports
 
     public function insert() {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare("INSERT INTO `error_reports`(`room_id`,`place`,`storey`,`status`,`report`) VALUES (:room,:place,:storey,:status,:report)");
+        $stmt = $conn->prepare("INSERT INTO error_reports(room_id,place,storey,status,report,started) VALUES (:room,:place,:storey,:status,:report,:started)");
         $stmt->execute([
             ':room' => $this->room_id,
             ':place' => $this->place,
             ':storey' => $this->storey,
             ':status' => $this->status,
-            ':report' => $this->report
+            ':report' => $this->report,
+            ':started' => $this->started,
         ]);
         if($stmt) {
           $this->report_id = $conn->lastInsertId();
         }
     }
 
-    public static function delete($id) {
-        if (!is_null($id)) {
-            $conn = Database::getConnection();
-            $stmt = $conn->prepare("DELETE FROM error_reports WHERE report_id = ?");
-            $stmt->execute([$id]);
-            return true;
-        } else {
-            return false;
-        }
+    public static function update($data) {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare('UPDATE error_reports SET room_id = :room_id,place = :place,storey = :storey,status = :status,report = :report,started = :started');
+        $stmt->execute([
+            ':room' => $data['room_id'],
+            ':place' => $data['place'],
+            ':storey' => $data['storey'],
+            ':status' => $data['status'],
+            ':report' => $data['report'],
+            ':started' => $data['started'],
+        ]);
+    }
+
+    public static function getRowCount()
+    {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare("SELECT * FROM error_reports");
+        $stmt->execute();
+        return $stmt->rowCount();
     }
 }

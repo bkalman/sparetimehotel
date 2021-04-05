@@ -67,19 +67,9 @@ class EmployeesController extends MainController
 
                 if ($_POST["operation"] == "Felvétel") {
                     $employees->load($employee);
-                    $result = $employees->insert();
-                    if(!empty($result))
-                    {
-                        fwrite(fopen('src/app/view/employees/msg.php','w'),'Sikeres felvétel!');
-                    }
-                } else if ($_POST["operation"] == "Változtat") {
-                    $result = Employees::update($employee);
-                    if(!empty($result))
-                    {
-                        fwrite(fopen('src/app/view/employees/msg.php','w'),'Sikeres adatszerkesztés!');
-                    }
-                }
-                header('location: src/app/view/employees/msg.php');
+                    $employees->insert();
+                } else if ($_POST["operation"] == "Változtat")
+                    Employees::update($employee);
             }
         //} else echo $passwordVerify.$phoneVerify;
     }
@@ -168,8 +158,6 @@ class EmployeesController extends MainController
         if(!empty($_POST["employee_id"]))
         {
             $result = Employees::delete($_POST['employee_id']);
-            if ($result != '') fwrite(fopen('src/app/view/employees/msg.php','w'),'Sikeres törlés!');
-            header('location: src/app/view/employees/msg.php');
         }
     }
 }

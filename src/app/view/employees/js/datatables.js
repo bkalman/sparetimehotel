@@ -73,7 +73,6 @@ $(document).ready(function(){
                 processData:false,
                 success:function(data)
                 {
-                    alert(data);
                     $('#user_form')[0].reset();
                     $('#userModal').modal('hide');
                     dataTable.ajax.reload();
@@ -128,7 +127,6 @@ $(document).ready(function(){
                 data:{employee_id:employee_id},
                 success:function(data)
                 {
-                    alert(data);
                     dataTable.ajax.reload();
                 }
             });

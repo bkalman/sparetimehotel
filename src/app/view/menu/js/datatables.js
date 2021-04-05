@@ -53,7 +53,6 @@ $(document).ready(function(){
                 processData:false,
                 success:function(data)
                 {
-                    alert(data);
                     $('#menu_form')[0].reset();
                     $('#menuModal').modal('hide');
                     dataTable.ajax.reload();
@@ -107,7 +106,6 @@ $(document).ready(function(){
                 data:{menu_id:menu_id},
                 success:function(data)
                 {
-                    alert(data);
                     dataTable.ajax.reload();
                 }
             });

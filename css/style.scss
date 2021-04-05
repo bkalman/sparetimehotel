@@ -299,6 +299,26 @@ input[type=checkbox] {
   margin:0;
 }
 
+#newBill, #deleteBill {
+  color:rgba(150,150,150);
+  cursor: pointer;
+  &:hover {
+    color:rgba(50,50,50);
+  }
+}
+#deleteBill{
+  color: #ff6161;
+  &:hover {
+  color:red;
+}
+}
+
+.container {
+  max-width: 1500px;
+}
+
+
+
 @media (max-width: 991px) {
   #userlog {
     position: static;

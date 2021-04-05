@@ -54,14 +54,26 @@ if($controllerName == 'HyperlinkController') {
         $content = $controller->actionAttendanceSheet();
     }
 
-} else if($controllerName == 'ErrorReportController') {
+} else if($controllerName == 'ErrorReportsController') {
     $controller = new \app\controller\ErrorReportsController();
-    if($actionName == 'actionInsertIndex') {
-        $content = $controller->actionInsertIndex();
-    } else if($actionName == 'actionDelete') {
-        $content = $controller->actionDelete();
-    } else if($actionName == 'actionUpload') {
-        $content = $controller->actionUpload();
+    if($actionName == "actionInsert") {
+        $content = $controller->actionInsert();
+    } else if($actionName == 'actionFetch') {
+        $content = $controller->actionFetch();
+    } else if($actionName == 'actionInsertDiary') {
+        $content = $controller->actionInsertDiary();
+    } else if($actionName == 'actionCheckIn') {
+        $content = $controller->actionCheckIn();
+    } else if($actionName == 'actionFetchSingle') {
+        $content = $controller->actionFetchSingle();
+    } else if($actionName == 'actionFetchSingleDiary') {
+        $content = $controller->actionFetchSingleDiary();
+    } else if($actionName == 'actionFetchSingleDate') {
+        $content = $controller->actionFetchSingleDate();
+    } else if($actionName == 'actionFindAll') {
+        $content = $controller->actionFindAll();
+    } else if($actionName == 'actionDeleteBill') {
+        $content = $controller->actionDeleteBill();
     }
 } else if($controllerName == 'RoomBookingController') {
     $controller = new \app\controller\RoomBookingController();
@@ -108,6 +120,13 @@ if($controllerName == 'HyperlinkController') {
         $content = $controller->actionDelete();
     } else if($actionName == 'actionFetchSingle') {
         $content = $controller->actionFetchSingle();
+    }
+} else if($controllerName == 'ReservationGuestController') {
+    $controller = new \app\controller\ReservationGuestController();
+    if($actionName == "actionIndex") {
+        $content = $controller->actionIndex();
+    } else if($actionName == "action") {
+        $content = $controller->action();
     }
 }
 include('src/app/view/template/mainTemplate.php');

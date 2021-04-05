@@ -35,21 +35,11 @@ class MenuController
                 if (!empty($_POST['menu']['recommendation'])) MenuRecommendation::insert([$result->getMenuId(),$_POST['menu']['recommendation']]);
                 foreach ($allergens as $allergen)
                     MenuAllergens::insert([$result->getMenuId(),$allergen]);
-
-                if(!empty($result))
-                {
-                    fwrite(fopen('src/app/view/menu/msg.php','w'),'Sikeres felvétel!');
-                }
             } else if ($_POST["operation"] == "Változtat") {
-                $result = Menu::update($food);
+                Menu::update($food);
                 MenuAllergens::update($food['menu_id'],$allergens);
                 MenuRecommendation::update($food['menu_id'],$_POST['menu']['recommendation']);
-                if(!empty($result))
-                {
-                    fwrite(fopen('src/app/view/menu/msg.php','w'),'Sikeres adatszerkesztés!');
-                }
             }
-            header('location: src/app/view/menu/msg.php');
         }
     }
 
@@ -143,11 +133,6 @@ class MenuController
 
     public function actionDelete() {
         if(!empty($_POST["menu_id"]))
-        {
-            $result = Menu::delete($_POST['menu_id']);
-            if ($result != '')
-                fwrite(fopen('src/app/view/menu/msg.php','w'),'Sikeres törlés!');
-            header('location: src/app/view/menu/msg.php');
-        }
+            Menu::delete($_POST['menu_id']);
     }
 }

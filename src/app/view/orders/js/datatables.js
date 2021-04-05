@@ -51,7 +51,6 @@ $(document).ready(function(){
                 processData:false,
                 success:function(data)
                 {
-                    alert(data);
                     $('#order_form')[0].reset();
                     $('#orderModal').modal('hide');
                     dataTable.ajax.reload();
@@ -99,7 +98,6 @@ $(document).ready(function(){
                 data:{guest_id:guest_id},
                 success:function(data)
                 {
-                    alert(data);
                     dataTable.ajax.reload();
                 }
             });

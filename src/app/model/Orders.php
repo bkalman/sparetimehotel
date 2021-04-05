@@ -70,6 +70,10 @@ class Orders
         return $stmt->fetchAll(\PDO::FETCH_CLASS,self::class);
     }
 
+    /**
+     * @param $data
+     * @return Orders
+     */
     public static function findOne($data) {
         $conn = Database::getConnection();
         $stmt = $conn->prepare("SELECT * FROM orders WHERE guest_id = :guest_id AND date = :date");

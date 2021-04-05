@@ -32,7 +32,7 @@ if(Jobs::currentUserCan('function.reservation')): ?>
                     <table id="reservations_data" class="table">
                         <thead>
                         <tr>
-                            <th scope="col">S.</th>
+                            <th scope="col">Sorszám</th>
                             <th scope="col">Név</th>
                             <th scope="col">E-mail</th>
                             <th scope="col">Telszám</th>
@@ -40,6 +40,7 @@ if(Jobs::currentUserCan('function.reservation')): ?>
                             <th scope="col">Szoba</th>
                             <th scope="col" style="width: 100px">Bejelentkezés</th>
                             <th scope="col" style="width: 100px">Kijelentkezés</th>
+                            <th scope="col" style="width: 100px">Ár</th>
                             <th scope="col" style="width: 40px">Szerkesztés</th>
                             <th scope="col" style="width: 40px">Check</th>
                         </tr>
@@ -88,11 +89,10 @@ if(Jobs::currentUserCan('function.reservation')): ?>
                                     <option default></option>
                                     <?php foreach ($rooms as $r): ?>
                                         <?php
-                                        $numbers = [1,6,11,16,21];
+                                        $numbers = [1,6,11,16,21,26,30];
                                         for ($n = 0; $n < count($numbers); $n++) {
                                             if ($r->getRoomId() == $numbers[$n]) echo '<option disabled>----- '.($n+1).'. emelet -----</option>';
                                         }
-
                                         if(!is_null($r->getPrice())): ?>
                                         <option value="<?=$r->getRoomId()?>"><?=$r->getRoomId().' / '.$r->getBed().' ágy / '.$r->getExtras().' / '.$r->getPrice()?>Ft</option>
                                     <?php endif; endforeach; ?>

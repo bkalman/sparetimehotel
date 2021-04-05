@@ -7,6 +7,7 @@ use db\Database;
 class Rooms
 {
     private $room_id;
+    private $type;
     private $storey;
     private $bed;
     private $extras;
@@ -18,6 +19,14 @@ class Rooms
     public function getRoomId()
     {
         return $this->room_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 
     /**

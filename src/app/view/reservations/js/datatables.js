@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#add_button').click(function(){
+    $(document).on('click','#add_button',function(){
         $('#reservations_form')[0].reset();
         $('.modal-title').text("Foglalás hozzáadás");
         $('#action').val("Hozzáad");
@@ -59,7 +59,7 @@ $(document).ready(function(){
                 processData:false,
                 success:function(data)
                 {
-                    alert(data);
+
                     $('#reservations_form')[0].reset();
                     $('#reservationsModal').modal('hide');
                     dataTable.ajax.reload();
@@ -117,7 +117,7 @@ $(document).ready(function(){
             data:{room_booking_id:room_booking_id},
             success:function(data)
             {
-                alert(data);
+
                 dataTable.ajax.reload();
             }
         });
@@ -183,7 +183,6 @@ $(document).ready(function(){
                 processData:false,
                 success:function(data)
                 {
-                    alert(data);
                     $('#guest_form')[0].reset();
                     $('#guestModal').modal('hide');
                     $('#reservationsModal').modal('show');

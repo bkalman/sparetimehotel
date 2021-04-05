@@ -301,6 +301,25 @@ input[type=checkbox] {
   margin: 0;
 }
 
+#newBill, #deleteBill {
+  color: #969696;
+  cursor: pointer;
+}
+#newBill:hover, #deleteBill:hover {
+  color: #323232;
+}
+
+#deleteBill {
+  color: #ff6161;
+}
+#deleteBill:hover {
+  color: red;
+}
+
+.container {
+  max-width: 1500px;
+}
+
 @media (max-width: 991px) {
   #userlog {
     position: static;

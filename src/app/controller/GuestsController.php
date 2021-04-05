@@ -20,17 +20,9 @@ class GuestsController extends MainController
             if ($_POST["operationUser"] == "Regisztrál") {
                 $guests = new Guests();
                 $guests->load($reservation);
-                $result = $guests->insert();
-                if (!empty($result)) {
-                    fwrite(fopen('src/app/view/reservations/msg.php', 'w'), 'Sikeres regisztrálás!');
-                }
-            } else if ($_POST["operationUser"] == "Változtat") {
-                $result = Guests::update($reservation);
-                if (!empty($result)) {
-                    fwrite(fopen('src/app/view/reservations/msg.php', 'w'), 'Sikeres adatszerkesztés!');
-                }
-            }
-           header('location: src/app/view/reservations/msg.php');
+                $guests->insert();
+            } else if ($_POST["operationUser"] == "Változtat")
+                Guests::update($reservation);
         }
     }
 
