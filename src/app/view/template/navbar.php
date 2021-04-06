@@ -55,9 +55,6 @@
                         </li>
                     <?php endif; ?>
                     <li class="nav-item">
-                        <a href="index.php?controller=errorReport&action=insertIndex" class="nav-link">Hibabejelentés</a>
-                    </li>
-                    <li class="nav-item">
                         <a href="index.php?controller=hyperlink&action=attendanceSheets" class="nav-link">Jelenléti ív</a>
                     </li>
                 <?php else: ?>

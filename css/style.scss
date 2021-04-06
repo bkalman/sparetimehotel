@@ -81,14 +81,14 @@ h2 {
 }
 
 $szin : #F39F71;
-form#reservation {
+form#reservation,#reservation_datas {
   font-weight: bold;
   text-align: center;
   label {
     color: $szin;
     text-shadow: 0 0 2px $szin;
   }
-  > .row > .col-12 > .row > div > input {
+  > .row > .col-12 > .row > div input {
     text-align: center;
     box-shadow: 2px 2px 3px lightgray;
     &.form-control, &.btn {
@@ -101,15 +101,10 @@ form#reservation {
     }
     &[type=submit] {
       font-weight: bold;
-    }
-    &[type=submit] {
       background-color: $szin;
       color: white;
       width: calc(100% - 30px);
-      position: absolute;
-      bottom: 2px;
-      left:15px;
-      right:15px;
+      margin:0;
     }
   }
 }
@@ -317,7 +312,44 @@ input[type=checkbox] {
   max-width: 1500px;
 }
 
+#reservation_hr {
+  .col-6:nth-of-type(2) {
+    text-align: right;
+  }
+  .row {
+    background-color: rgba(220,220,220);
+    > div {
+      background-color: white;
+      a {
+        color:#2b2b2b;
+        &.text-success {
+          text-decoration: underline;
+          color: #28a745;
+        }
+      }
+      &::after {
+        content: '';
+        width: 23px;
+        height: 23px;
+        position: absolute;
+        left: -50px;
+        top: 4px;
+        transform: rotate(45deg);
+        border-top: 2px solid rgba(220,220,220);
+        border-right: 2px solid rgba(220,220,220);
+      }
 
+      &:first-child::after {
+        display: none;
+      }
+    }
+  }
+  margin-bottom: 50px;
+}
+
+#reservation_personal {
+  display: none;
+}
 
 @media (max-width: 991px) {
   #userlog {

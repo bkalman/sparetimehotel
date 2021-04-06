@@ -14,6 +14,7 @@ class AttendanceSheets
     private $end_time;
     private $working_hours;
     private $break;
+    private $status;
 
     /**
      * @return mixed
@@ -80,6 +81,14 @@ class AttendanceSheets
         return $this->break;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
     public static function findAll($sort) {
         if ($sort == 'nameAsc') {
             $sql = 'SELECT * FROM attendance_sheets';
@@ -102,5 +111,13 @@ class AttendanceSheets
         $stmt = $conn->prepare($sql);
         $stmt->execute([':id' => $id,':y' => $year,':m' => $month]);
         return $stmt->fetchAll(\PDO::FETCH_CLASS, self::class);
+    }
+
+    public static function getRowCount()
+    {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare("SELECT * FROM room_booking");
+        $stmt->execute();
+        return $stmt->rowCount();
     }
 }

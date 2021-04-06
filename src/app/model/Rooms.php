@@ -88,4 +88,12 @@ class Rooms
         $stmt->execute([':id' => $id]);
         return $stmt->fetchObject(self::class);
     }
+
+    public static function getRowCount()
+    {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare("SELECT * FROM rooms");
+        $stmt->execute();
+        return $stmt->rowCount();
+    }
 }

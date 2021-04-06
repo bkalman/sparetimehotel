@@ -55,9 +55,16 @@ class Menu
 
     public static function findOneById($id) {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare("SELECT * FROM menu WHERE menu_id LIKE ?");
+        $stmt = $conn->prepare("SELECT * FROM menu WHERE menu_id = ?");
         $stmt->execute([$id]);
         return $stmt->fetchObject(self::class);
+    }
+
+    public static function findOneByName($name) {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare("SELECT * FROM menu WHERE name = ?");
+        $stmt->execute([$name]);
+        return $stmt->fetchObject(self::class)->getMenuId();
     }
 
     public function load($data) {

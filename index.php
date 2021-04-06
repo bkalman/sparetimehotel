@@ -13,12 +13,18 @@ $whoops->register();
 
 session_start();
 
+if(empty($_GET['controller']) && empty($_GET['action'])) {
+    $_SESSION['reservation'] = '';
+    unset($_SESSION['reservation']);
+}
+
 $controllerName = !empty($_GET['controller'])? ucfirst($_GET['controller']).'Controller' : 'HyperlinkController';
 $actionName = !empty($_GET['action'])? 'action'.ucfirst($_GET['action']) : 'actionHome';
 
 $content = '404';
 $style = '';
 if($actionName != 'actionHome') $style = '<link rel="stylesheet" href="css/nav.css">';
+
 
 if($controllerName == 'HyperlinkController') {
     $controller = new \app\controller\ViewController();
@@ -40,20 +46,6 @@ if($controllerName == 'HyperlinkController') {
     } else if($actionName == 'actionFetchSingle') {
         $content = $controller->actionFetchSingle();
     }
-} else if($controllerName == 'FunctionController') {
-    $controller = new \app\controller\FunctionsController();
-    if($actionName == 'actionReservation') {
-        $content = $controller->actionReservation();
-    } else if($actionName == 'actionReports') {
-        $content = $controller->actionReports();
-    } else if($actionName == 'actionEmployee') {
-        $content = $controller->actionEmployee();
-    } else if($actionName == 'actionRestaurant') {
-        $content = $controller->actionRestaurant();
-    } else if($actionName == 'actionAttendanceSheet') {
-        $content = $controller->actionAttendanceSheet();
-    }
-
 } else if($controllerName == 'ErrorReportsController') {
     $controller = new \app\controller\ErrorReportsController();
     if($actionName == "actionInsert") {
@@ -123,12 +115,52 @@ if($controllerName == 'HyperlinkController') {
     }
 } else if($controllerName == 'ReservationGuestController') {
     $controller = new \app\controller\ReservationGuestController();
-    if($actionName == "actionIndex") {
-        $content = $controller->actionIndex();
-    } else if($actionName == "action") {
-        $content = $controller->action();
+    if($actionName == "actionDate") {
+        $content = $controller->actionDate();
+    } else if($actionName == "actionRoom") {
+        $content = $controller->actionRoom();
+    } else if($actionName == "actionMenu") {
+        $content = $controller->actionMenu();
+    } else if($actionName == "actionPersonalData") {
+        $content = $controller->actionPersonalData();
+    } else if($actionName == "actionFetch") {
+        $content = $controller->actionFetch();
+    } else if($actionName == "actionInsert") {
+        $content = $controller->actionInsert();
+    } else if($actionName == 'actionFetch') {
+        $content = $controller->actionFetch();
+    } else if($actionName == 'actionDelete') {
+        $content = $controller->actionDelete();
+    } else if($actionName == 'actionFetchSingle') {
+        $content = $controller->actionFetchSingle();
+    } else if($actionName == 'actionDone') {
+        $content = $controller->actionDone();
+    }
+} else if($controllerName == 'AttendanceSheetsController') {
+    $controller = new \app\controller\AttendanceSheetsController();
+    if($actionName == "actionInsertMonth") {
+        $content = $controller->actionInsertMonth();
+    } else if($actionName == "actionRoom") {
+        $content = $controller->actionRoom();
+    } else if($actionName == "actionMenu") {
+        $content = $controller->actionMenu();
+    } else if($actionName == "actionPersonalData") {
+        $content = $controller->actionPersonalData();
+    } else if($actionName == "actionFetch") {
+        $content = $controller->actionFetch();
+    } else if($actionName == "actionInsert") {
+        $content = $controller->actionInsert();
+    } else if($actionName == 'actionFetch') {
+        $content = $controller->actionFetch();
+    } else if($actionName == 'actionDelete') {
+        $content = $controller->actionDelete();
+    } else if($actionName == 'actionFetchSingle') {
+        $content = $controller->actionFetchSingle();
+    } else if($actionName == 'actionDone') {
+        $content = $controller->actionDone();
     }
 }
+
 include('src/app/view/template/mainTemplate.php');
 
 

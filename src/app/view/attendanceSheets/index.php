@@ -16,79 +16,64 @@ $employees = Employees::findAll();
 ?>
 <section id="container">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>Jelenléti ív</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <table class="table">
+        <div class="container box">
+            <div class="table-responsive">
+                <?php if(Jobs::currentUserCan('function.employee')): ?>
+                <div align="right">
+                    <button type="button" id="add_button" data-toggle="modal" data-target="#attendace_sheetsModal" class="btn btn-info btn-lg">Hónap hozzáadása</button>
+                </div>
+                <?php endif; ?>
+                <table id="attendace_sheets_data" class="table">
                     <thead>
-                    <tr>
-                        <th scope="col">
-                            Név
-                        </th>
-                        <th scope="col"">
-                        <?php if($sort == 'asc'): ?>
-                            <a href="index.php?controller=function&action=attendanceSheet&sort=desc">Dátum
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-sort-alpha-down" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M10.082 5.629L9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
-                                    <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zM4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"/>
-                                </svg>
-                            </a>
-                        <?php elseif ($sort == 'desc'): ?>
-                            <a href="index.php?controller=function&action=attendanceSheet">Dátum
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-sort-alpha-up" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M10.082 5.629L9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"/>
-                                    <path d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zm-8.46-.5a.5.5 0 0 1-1 0V3.707L2.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L4.5 3.707V13.5z"/>
-                                </svg>
-                            </a>
-                        <?php endif; ?>
-                        </th>
-                        <th scope="col"">
-                            Kezdés
-                        </th>
-                        <th scope="col">
-                            Befejezés
-                        </th>
-                        <th scope="col">
-                            Ledolgozott órák
-                        </th>
-                        <th scope="col">
-                            Szünet
-                        </th>
-                    </tr>
+                        <tr>
+                            <th scope="col">Név</th>
+                            <th scope="col"">Dátum</th>
+                            <th scope="col"">Kezdés</th>
+                            <th scope="col">Befejezés</th>
+                            <th scope="col">Ledolgozott órák</th>
+                            <th scope="col">Szünet</th>
+                            <th scope="col">Állapot</th>
+                        </tr>
                     </thead>
-                    <tbody>
-                    <?php if(Jobs::currentUserCan('function.employee')): ?>
-                        <tr>
-                            <td>
-                                <select name="guestName" id="guestName" class="form-control">
-                                    <?php foreach($employees as $k => $v): ?>
-                                        <option value="<?=$v->getEmployeeId()?>" <?= $id == $v->getEmployeeId() ? 'selected' : '' ?> ><?=$v->getLastName()?> <?=$v->getFirstName()?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </td>
-                            <td>
-                                <select name="year" id="year" class="form-control-plaintext" style="width:auto;display:inherit"></select>
-                                <select name="month" id="month" class="form-control-plaintext" style="width:auto;display:inherit"></select>
-                            </td>
-                        </tr>
-                    <?php endif; ?>
-                    <?php foreach($attendanceSheets as $a => $s): ?>
-                        <tr>
-                            <td scope="row"><?=Employees::findOneById($s->getEmployeeId())->getLastName()?> <?=Employees::findOneById($s->getEmployeeId())->getFirstName()?></td>
-                            <td><?=$s->getYear()?>.<?=$n = strlen($s->getMonth()) == 1 ? '0'.$s->getMonth() : $s->getMonth()?>.<?=$n = strlen($s->getDay()) == 1 ? '0'.$s->getDay() : $s->getDay()?></td>
-                            <td><?=$s->getStartTime()?></td>
-                            <td><?=$s->getEndTime()?></td>
-                            <td><?=$s->getWorkingHours()?></td>
-                            <td><?=$s->getBreak()?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                    </tbody>
                 </table>
             </div>
         </div>
     </div>
 </section>
+
+<?php if(Jobs::currentUserCan('function.employee')): ?>
+    <div id="attendace_sheetsModal" class="modal fade">
+        <div class="modal-dialog">
+            <form method="post" id="attendace_sheets_form" enctype="multipart/form-data">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Hónap hozzáadás</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="employee_id" class="labelUp">Munkavállaló</label>
+                                <select name="attendace_sheets[employee_id]" id="employee_id" class="form-control">
+                                    <?php foreach ($employees as $e): ?>
+                                        <option value="<?=$e->getEmployeeId()?>"><?=$e->getLastName().' '.$e->getFirstName()?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <div class="invalid-feedback">Nincsen kitöltve!</div>
+                            </div>
+                            <div class="form-group col-md-6">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="attendace_sheets[room_booking_id]" id="room_booking_id">
+                        <input type="hidden" name="operation" id="operation">
+                        <input type="submit" name="action" id="action" class="btn btn-success" value="Hozzáad">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Kilépés</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<?php endif; ?>

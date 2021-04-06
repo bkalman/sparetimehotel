@@ -96,7 +96,7 @@ class Guests
         if($stmt) {
             $this->guest_id = $conn->lastInsertId();
         }
-        return self::findOneById($conn->lastInsertId());
+        return $this->guest_id;
     }
 
     public static function update($data) {

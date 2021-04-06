@@ -91,37 +91,32 @@ h2 {
   text-align: left;
 }
 
-form#reservation {
+form#reservation, #reservation_datas {
   font-weight: bold;
   text-align: center;
 }
-form#reservation label {
+form#reservation label, #reservation_datas label {
   color: #F39F71;
   text-shadow: 0 0 2px #F39F71;
 }
-form#reservation > .row > .col-12 > .row > div > input {
+form#reservation > .row > .col-12 > .row > div input, #reservation_datas > .row > .col-12 > .row > div input {
   text-align: center;
   box-shadow: 2px 2px 3px lightgray;
 }
-form#reservation > .row > .col-12 > .row > div > input.form-control, form#reservation > .row > .col-12 > .row > div > input.btn {
+form#reservation > .row > .col-12 > .row > div input.form-control, form#reservation > .row > .col-12 > .row > div input.btn, #reservation_datas > .row > .col-12 > .row > div input.form-control, #reservation_datas > .row > .col-12 > .row > div input.btn {
   border-radius: 50px;
 }
-form#reservation > .row > .col-12 > .row > div > input#bedNumber {
+form#reservation > .row > .col-12 > .row > div input#bedNumber, #reservation_datas > .row > .col-12 > .row > div input#bedNumber {
   width: 80px;
   margin-right: 10px;
   display: initial;
 }
-form#reservation > .row > .col-12 > .row > div > input[type=submit] {
+form#reservation > .row > .col-12 > .row > div input[type=submit], #reservation_datas > .row > .col-12 > .row > div input[type=submit] {
   font-weight: bold;
-}
-form#reservation > .row > .col-12 > .row > div > input[type=submit] {
   background-color: #F39F71;
   color: white;
   width: calc(100% - 30px);
-  position: absolute;
-  bottom: 2px;
-  left: 15px;
-  right: 15px;
+  margin: 0;
 }
 
 form#choice table {
@@ -318,6 +313,44 @@ input[type=checkbox] {
 
 .container {
   max-width: 1500px;
+}
+
+#reservation_hr {
+  margin-bottom: 50px;
+}
+#reservation_hr .col-6:nth-of-type(2) {
+  text-align: right;
+}
+#reservation_hr .row {
+  background-color: gainsboro;
+}
+#reservation_hr .row > div {
+  background-color: white;
+}
+#reservation_hr .row > div a {
+  color: #2b2b2b;
+}
+#reservation_hr .row > div a.text-success {
+  text-decoration: underline;
+  color: #28a745;
+}
+#reservation_hr .row > div::after {
+  content: "";
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  left: -50px;
+  top: 4px;
+  transform: rotate(45deg);
+  border-top: 2px solid gainsboro;
+  border-right: 2px solid gainsboro;
+}
+#reservation_hr .row > div:first-child::after {
+  display: none;
+}
+
+#reservation_personal {
+  display: none;
 }
 
 @media (max-width: 991px) {
