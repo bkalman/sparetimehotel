@@ -23,11 +23,14 @@ class MainController
         echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>';
         echo '<script src="js/jquery.datatables.min.js"></script>';
 
-        $files = scandir("src/app/view/{$this->controllerName}/js");
-        foreach ($files as $file) {
-            if($file != '.' && $file != '..')
-            echo "<script src='src/app/view/{$this->controllerName}/js/{$file}'></script>";
-        }
+        try {
+            $files = scandir("src/app/view/{$this->controllerName}/js");
+            foreach ($files as $file) {
+                if($file != '.' && $file != '..')
+                    echo "<script src='src/app/view/{$this->controllerName}/js/{$file}'></script>";
+            }
+        } catch(\Exception $e) {}
+
         return ob_get_clean();
     }
 }

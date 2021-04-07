@@ -51,7 +51,7 @@
                         </li>
                     <?php elseif(Jobs::getCurrentUserAccessRight() == 'function.restaurant'): ?>
                         <li class="nav-item">
-                            <a href="index.php?controller=hyperlink&action=restaurant" class="nav-link">Étterem</a>
+                            <a href="index.php?controller=hyperlink&action=orders" class="nav-link">Étterem</a>
                         </li>
                     <?php endif; ?>
                     <li class="nav-item">

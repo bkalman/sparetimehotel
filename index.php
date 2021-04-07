@@ -140,24 +140,14 @@ if($controllerName == 'HyperlinkController') {
     $controller = new \app\controller\AttendanceSheetsController();
     if($actionName == "actionInsertMonth") {
         $content = $controller->actionInsertMonth();
-    } else if($actionName == "actionRoom") {
-        $content = $controller->actionRoom();
-    } else if($actionName == "actionMenu") {
-        $content = $controller->actionMenu();
-    } else if($actionName == "actionPersonalData") {
-        $content = $controller->actionPersonalData();
+    } else if($actionName == "actionUpdate") {
+        $content = $controller->actionUpdate();
+    } else if($actionName == "actionUpdateStatus") {
+        $content = $controller->actionUpdateStatus();
     } else if($actionName == "actionFetch") {
         $content = $controller->actionFetch();
-    } else if($actionName == "actionInsert") {
-        $content = $controller->actionInsert();
-    } else if($actionName == 'actionFetch') {
-        $content = $controller->actionFetch();
-    } else if($actionName == 'actionDelete') {
-        $content = $controller->actionDelete();
-    } else if($actionName == 'actionFetchSingle') {
+    } else if($actionName == "actionFetchSingle") {
         $content = $controller->actionFetchSingle();
-    } else if($actionName == 'actionDone') {
-        $content = $controller->actionDone();
     }
 }
 

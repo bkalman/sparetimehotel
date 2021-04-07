@@ -7,9 +7,7 @@ use db\Database;
 class AttendanceSheets
 {
     private $employee_id;
-    private $year;
-    private $month;
-    private $day;
+    private $date;
     private $start_time;
     private $end_time;
     private $working_hours;
@@ -27,25 +25,9 @@ class AttendanceSheets
     /**
      * @return mixed
      */
-    public function getYear()
+    public function getDate()
     {
-        return $this->year;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMonth()
-    {
-        return $this->month;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDay()
-    {
-        return $this->day;
+        return $this->date;
     }
 
     /**
@@ -111,6 +93,34 @@ class AttendanceSheets
         $stmt = $conn->prepare($sql);
         $stmt->execute([':id' => $id,':y' => $year,':m' => $month]);
         return $stmt->fetchAll(\PDO::FETCH_CLASS, self::class);
+    }
+
+    public static function update($data) {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare('UPDATE attendance_sheets SET start_time = :start_time,end_time = :end_time,working_hours = :working_hours,break = :break,status = :status WHERE employee_id = :employee_id AND date = :date');
+        $stmt->execute([
+            ':start_time' => $data['start_time'],
+            ':end_time' => $data['end_time'],
+            ':working_hours' => $data['working_hours'],
+            ':break' => $data['break'],
+            ':status' => $data['status'],
+            ':employee_id' => $data['employee_id'],
+            ':date' => $data['date'],
+        ]);
+    }
+
+    public static function insert($data) {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare('INSERT INTO attendance_sheets(employee_id, date, start_time, end_time, working_hours, break, status) VALUES (:employee_id, :date, :start_time, :end_time, :working_hours, :break, :status)');
+        $stmt->execute([
+            ':employee_id' => $data['employee_id'],
+            ':date' => $data['date'],
+            ':start_time' => $data['start_time'],
+            ':end_time' => $data['end_time'],
+            ':working_hours' => $data['working_hours'],
+            ':break' => $data['break'],
+            ':status' => $data['status'],
+        ]);
     }
 
     public static function getRowCount()
