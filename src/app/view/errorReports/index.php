@@ -94,7 +94,7 @@ if(Jobs::currentUserCan('function.report')): ?>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="hidden" name="errorReports[diaryreport_id]" id="report_id">
+                        <input type="hidden" name="errorReports[report_id]" id="report_id">
                         <input type="hidden" name="operation" id="operation">
                         <input type="submit" name="action" id="action" class="btn btn-success" value="Bejelentés">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Kilépés</button>

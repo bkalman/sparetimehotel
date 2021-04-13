@@ -16,7 +16,7 @@ $(document).ready(function(){
         },
         "columnDefs":[
             {
-                "targets":[2,3,4,5,6],
+                "targets":[2,3,4,5],
                 "orderable":false,
             },
         ],

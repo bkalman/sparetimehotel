@@ -2,12 +2,6 @@
 "use strict"
 
 $(document).ready(function(){
-    /*if (window.location.href == 'index.php?controller=hyperlink&action=employees&update=true') {
-        console.log('Sikeres változtatás!');
-    } else if (window.location.href == 'index.php?controller=hyperlink&action=employees&update=false') {
-        console.log('Hibás jelszó!');
-    }*/
-
     $('#add_button').click(function(){
         $('#user_form')[0].reset();
         $('.modal-title').text("Munkavállaló Felvétel");
@@ -31,7 +25,7 @@ $(document).ready(function(){
         },
         "columnDefs":[
             {
-                "targets":[2,3,4,5,6],
+                "targets":[2,3,4,5],
                 "orderable":false,
             },
         ],
@@ -81,6 +75,21 @@ $(document).ready(function(){
         }
     });
 
+    $(document).on('click', '.active', function(){
+        $.ajax({
+            url:"index.php?controller=employees&action=active",
+            method:'POST',
+            data:{
+                employee_id:$(this).attr('id'),
+                active:$(this).attr('class') == 'btn btn-success active' ? 0 : 1,
+            },
+            success:function()
+            {
+                dataTable.ajax.reload();
+            }
+        });
+    });
+
     $(document).on('click', '.update', function(){
         let employee_id = $(this).attr("id");
         $('#user_form .form-group input, #user_form .form-group select').attr('class','form-control');
@@ -111,6 +120,7 @@ $(document).ready(function(){
                 $('.modal-title').text("Adatok szerkesztése");
                 $('#employee_id').val(employee_id);
                 $('#user_uploaded_image').html(data.user_image);
+                $('#active').val(data.active);
                 $('#action').val("Változtat");
                 $('#operation').val("Változtat");
             }

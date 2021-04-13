@@ -45,6 +45,8 @@ if($controllerName == 'HyperlinkController') {
         $content = $controller->actionDelete();
     } else if($actionName == 'actionFetchSingle') {
         $content = $controller->actionFetchSingle();
+    } else if($actionName == 'actionActive') {
+        $content = $controller->actionActive();
     }
 } else if($controllerName == 'ErrorReportsController') {
     $controller = new \app\controller\ErrorReportsController();
@@ -152,5 +154,3 @@ if($controllerName == 'HyperlinkController') {
 }
 
 include('src/app/view/template/mainTemplate.php');
-
-

@@ -105,10 +105,15 @@ class Menu
 
     public static function delete($id) {
         $conn = Database::getConnection();
-        MenuAllergens::deleteAll($id);
-        MenuRecommendation::delete($id);
-        $stmt = $conn->prepare("DELETE FROM menu WHERE menu_id = ?");
-        $stmt->execute([$id]);
+        $stmtMenu = $conn->prepare('SELECT * FROM orders WHERE breakfast = ? OR lunch = ? OR dinner = ?');
+        $stmtMenu->execute([$id,$id,$id,]);
+        $result = $stmtMenu->fetchAll(\PDO::FETCH_CLASS,self::class);
+        if (empty($result) && $id != 0) {
+            MenuAllergens::deleteAll($id);
+            MenuRecommendation::delete($id);
+            $stmt = $conn->prepare("DELETE FROM menu WHERE menu_id = ?");
+            $stmt->execute([$id]);
+        } else return 'false-in-menu';
     }
 
     public static function getRowCount()

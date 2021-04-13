@@ -42,36 +42,30 @@ class EmployeesController extends MainController
     }
 
     public function actionInsert() {
-        //Nem működik
-        //$passwordVerify = $_POST['employee']['password'] == $_POST['employee']['password_repeat'] ? '' : 'Nem egyező jelszavak';
-        //$phoneVerify = preg_match("/^[06][0-9]\d{1,2}[0-9]\d{7}$/",$_POST['employee']['phone_number']) ? '' : 'Érvénytelen telefonszám';
-        //$addressVerify = preg_match("/^[0-9]{4}[ ][a-zA-Z]+[, ][a-zA-Z0-9.]+[ ][0-9.]+$/",$_POST['employee']['address'])? '' : 'Érvénytelen lakcím';
+        $employees = new Employees();
+        if (isset($_POST["operation"])) {
+            $employee = [
+                'first_name' => $_POST['employee']['first_name'],
+                'last_name' => $_POST['employee']['last_name'],
+                'email' => $_POST['employee']['email'],
+                'phone_number' => $_POST['employee']['phone_number'][0].$_POST['employee']['phone_number'][1] != '06' ? '06'.$_POST['employee']['phone_number'] : $_POST['employee']['phone_number'],
+                'job_id' => $_POST['employee']['job_id'],
+                'zip' => $_POST['employee']['zip'],
+                'city' => $_POST['employee']['city'],
+                'street_address' => $_POST['employee']['street_address'],
+                'house_number' => $_POST['employee']['house_number'],
+                'floor_door' => $_POST['employee']['floor_door'],
+                'password' => $_POST['employee']['password'],
+                'employee_id' => $_POST['employee']['employee_id'],
+                'active' => $_POST['employee']['active'],
+            ];
 
-        //if($passwordVerify == '' || $phoneVerify == '') {
-            $employees = new Employees();
-            if (isset($_POST["operation"])) {
-                $employee = [
-                    'first_name' => $_POST['employee']['first_name'],
-                    'last_name' => $_POST['employee']['last_name'],
-                    'email' => $_POST['employee']['email'],
-                    'phone_number' => $_POST['employee']['phone_number'][0].$_POST['employee']['phone_number'][1] != '06' ? '06'.$_POST['employee']['phone_number'] : $_POST['employee']['phone_number'],
-                    'job_id' => $_POST['employee']['job_id'],
-                    'zip' => $_POST['employee']['zip'],
-                    'city' => $_POST['employee']['city'],
-                    'street_address' => $_POST['employee']['street_address'],
-                    'house_number' => $_POST['employee']['house_number'],
-                    'floor_door' => $_POST['employee']['floor_door'],
-                    'password' => $_POST['employee']['password'],
-                    'employee_id' => $_POST['employee']['employee_id'],
-                ];
-
-                if ($_POST["operation"] == "Felvétel") {
-                    $employees->load($employee);
-                    $employees->insert();
-                } else if ($_POST["operation"] == "Változtat")
-                    Employees::update($employee);
-            }
-        //} else echo $passwordVerify.$phoneVerify;
+            if ($_POST["operation"] == "Felvétel") {
+                $employees->load($employee);
+                $employees->insert();
+            } else if ($_POST["operation"] == "Változtat")
+                Employees::update($employee);
+        }
     }
 
     public function actionFetch()
@@ -79,7 +73,7 @@ class EmployeesController extends MainController
         $conn = Database::getConnection();
         $query = '';
         $query .= 'SELECT * FROM jobs INNER JOIN employees ON jobs.job_id = employees.job_id ';
-        $order = ['last_name','title'];
+        $order = ['last_name','title','','','','','active'];
         if (isset($_POST["search"]["value"])) {
             $query .= 'WHERE first_name LIKE "%' . $_POST["search"]["value"] . '%" ';
             $query .= 'OR title LIKE "%' . $_POST["search"]["value"] . '%" ';
@@ -93,8 +87,9 @@ class EmployeesController extends MainController
         }
 
         if (isset($_POST["order"])) {
-            $query .= 'ORDER BY ' . $order[$_POST['order']['0']['column']] . ' ' . $_POST['order']['0']['dir'] . ' ';
-        } else { $query .= 'ORDER BY last_name DESC '; }
+            if($order[$_POST['order']['0']['column']] == 'active') $query .= 'ORDER BY ' . $order[$_POST['order']['0']['column']] . ' ' . $_POST['order']['0']['dir'] . ' ';
+            if($order[$_POST['order']['0']['column']] != 'active') $query .= 'ORDER BY active DESC, ' . $order[$_POST['order']['0']['column']] . ' ' . $_POST['order']['0']['dir'] . ' ';
+        } else { $query .= 'ORDER BY active DESC, last_name DESC '; }
         if (isset($_POST["length"]) && $_POST["length"] != -1) {
             $query .= 'LIMIT ' . $_POST['start'] . ', ' . $_POST['length'];
         }
@@ -112,9 +107,8 @@ class EmployeesController extends MainController
             $sub_array[count($sub_array)] = $v["email"];
             $sub_array[count($sub_array)] = $v["phone_number"];
             $sub_array[count($sub_array)] = $v["zip"].' '.$v["city"].' '.$v["street_address"].' '.$v["house_number"].' '.$v["floor_door"];
-            $sub_array[count($sub_array)] = '<button type="button" name="update" id="' . $v["employee_id"] . '" class="btn btn-warning update"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-repeat" viewBox="-4 -4 25 25"><path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/><path fill-rule="evenodd" d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/></svg></button>';
-            $sub_array[count($sub_array)] = '<button type="button" name="delete" id="' . $v["employee_id"] . '" class="btn btn-danger btn-xs delete"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/></svg></button>';
-
+            $sub_array[count($sub_array)] = '<button type="button" name="update" id="' . $v["employee_id"] . '" class="btn btn-warning update"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-pencil" viewBox="-4 -4 25 25"><path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/></svg></button>';
+            $sub_array[count($sub_array)] = $v["active"] == 1 ? '<button type="button" name="active" id="' . $v["employee_id"] . '" class="btn btn-success active"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-check-fill" viewBox="-4 -4 25 25"><path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/><path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg></button>' : '<button type="button" name="active" id="' . $v["employee_id"] . '" class="btn btn-danger active"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-dash" viewBox="-4 -4 25 25"><path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/><path fill-rule="evenodd" d="M11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/></svg>/button>';
             $data[count($data)] = $sub_array;
         }
 
@@ -148,16 +142,17 @@ class EmployeesController extends MainController
                 $output['street_address'] = $row['street_address'];
                 $output['house_number'] = $row['house_number'];
                 $output['floor_door'] = $row['floor_door'];
+                $output['active'] = $row['active'];
            }
             fwrite(fopen('src/app/view/employees/fetchSingle.php','w'),json_encode($output));
             header('location: src/app/view/employees/fetchSingle.php');
         }
     }
 
-    public function actionDelete() {
+    public function actionActive() {
         if(!empty($_POST["employee_id"]))
         {
-            $result = Employees::delete($_POST['employee_id']);
+            Employees::updateActive($_POST['employee_id'],$_POST['active']);
         }
     }
 }

@@ -94,7 +94,7 @@ if(Jobs::currentUserCan('function.reservation')): ?>
                                             if ($r->getRoomId() == $numbers[$n]) echo '<option disabled>----- '.($n+1).'. emelet -----</option>';
                                         }
                                         if(!is_null($r->getPrice())): ?>
-                                        <option value="<?=$r->getRoomId()?>"><?=$r->getRoomId().' / '.$r->getBed().' ágy / '.$r->getExtras().' / '.$r->getPrice()?>Ft</option>
+                                        <option value="<?=$r->getRoomId()?>"><?=$r->getRoomId().' : '.$r->getBed().' ágy / '.$r->getExtras().' / '.$r->getPrice()?>Ft</option>
                                     <?php endif; endforeach; ?>
                                 </select>
                                 <div class="invalid-feedback">Nincsen kitöltve!</div>

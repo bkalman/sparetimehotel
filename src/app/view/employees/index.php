@@ -23,7 +23,7 @@ if(Jobs::currentUserCan('function.employee')): ?>
                     <th scope="col">E-mail</th>
                     <th scope="col" style="width: 400px">Lakcím</th>
                     <th scope="col">Szerkesztés</th>
-                    <th scope="col">Törlés</th>
+                    <th scope="col">Aktivitás</th>
                 </tr>
                 </thead>
             </table>
@@ -114,6 +114,7 @@ if(Jobs::currentUserCan('function.employee')): ?>
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <input type="hidden" name="employee[active]" id="active">
                     <input type="hidden" name="employee[employee_id]" id="employee_id">
                     <input type="hidden" name="operation" id="operation">
                     <input type="submit" name="action" id="action" class="btn btn-success" value="Felvétel">

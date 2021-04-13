@@ -18,6 +18,7 @@ class Employees
     private $house_number;
     private $floor_door;
     private $password;
+    private $active;
 
     private static $currentuser = null;
     private $loadable = ['first_name','last_name','email','phone_number','job_id','zip', 'city', 'street_address', 'house_number', 'floor_door','password'];
@@ -118,6 +119,14 @@ class Employees
         return $this->password;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
 
 
     public static function getJob($id){
@@ -188,7 +197,7 @@ class Employees
 
     public function insert() {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare("INSERT INTO employees(first_name, last_name, email, phone_number, job_id, zip, city, street_address, house_number, floor_door, password) VALUES (:first_name, :last_name, :email, :phone_number, :job_id, :zip, :city, :street_address, :house_number, :floor_door, :password)");
+        $stmt = $conn->prepare("INSERT INTO employees(first_name, last_name, email, phone_number, job_id, zip, city, street_address, house_number, floor_door, password, active) VALUES (:first_name, :last_name, :email, :phone_number, :job_id, :zip, :city, :street_address, :house_number, :floor_door, :password, 1)");
         $stmt->execute([
             ':first_name' => $this->first_name,
             ':last_name' => $this->last_name,
@@ -211,7 +220,7 @@ class Employees
     public static function update($data) {
         $conn = Database::getConnection();
 
-        $stmt = $conn->prepare("UPDATE employees SET first_name = :first_name, last_name = :last_name, email = :email, phone_number = :phone_number, job_id = :job_id, zip = :zip,city = :city,street_address = :street_address,house_number = :house_number,floor_door = :floor_door, password = :password WHERE employee_id = :employee_id");
+        $stmt = $conn->prepare("UPDATE employees SET first_name = :first_name, last_name = :last_name, email = :email, phone_number = :phone_number, job_id = :job_id, zip = :zip,city = :city,street_address = :street_address,house_number = :house_number,floor_door = :floor_door, password = :password, active = :active WHERE employee_id = :employee_id");
         $stmt->execute([
             ':first_name' => $data['first_name'],
             ':last_name' => $data['last_name'],
@@ -225,14 +234,18 @@ class Employees
             ':floor_door' => $data['floor_door'],
             ':password' => password_hash($data['password'], PASSWORD_BCRYPT),
             ':employee_id' => $data['employee_id'],
+            ':active' => $data['active'],
         ]);
         return $stmt;
     }
 
-    public static function delete($id) {
+    public static function updateActive($employee_id,$active) {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare("DELETE FROM employees WHERE employee_id = ?");
-        $stmt->execute([$id]);
+        $stmt = $conn->prepare("UPDATE employees SET active = :active WHERE employee_id = :employee_id");
+        $stmt->execute([
+            ':active' => $active,
+            ':employee_id' => $employee_id,
+        ]);
         return $stmt;
     }
 

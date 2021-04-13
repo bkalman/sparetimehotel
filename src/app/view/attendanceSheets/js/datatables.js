@@ -30,7 +30,7 @@ $(document).ready(function(){
     });
 
     $(document).on('change', 'td > .status', function(){
-        if (confirm('Biztosan megszeretné változtatni a státuszt?')) {
+        if (confirm('Biztosan megszeretné változtatni a állapotot?')) {
             $.ajax({
                 url: "index.php?controller=attendanceSheets&action=updateStatus",
                 method: "POST",

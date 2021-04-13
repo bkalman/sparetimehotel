@@ -121,14 +121,15 @@ class ErrorReports
 
     public static function update($data) {
         $conn = Database::getConnection();
-        $stmt = $conn->prepare('UPDATE error_reports SET room_id = :room_id,place = :place,storey = :storey,status = :status,report = :report,started = :started');
+        $stmt = $conn->prepare('UPDATE error_reports SET room_id = :room_id,place = :place,storey = :storey,status = :status,report = :report,started = :started WHERE report_id = :report_id');
         $stmt->execute([
-            ':room' => $data['room_id'],
+            ':room_id' => $data['room_id'],
             ':place' => $data['place'],
             ':storey' => $data['storey'],
             ':status' => $data['status'],
             ':report' => $data['report'],
             ':started' => $data['started'],
+            ':report_id' => $data['report_id'],
         ]);
     }
 

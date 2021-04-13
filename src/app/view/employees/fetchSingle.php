@@ -1,1 +1,1 @@
-{"first_name":"Zsuzsanna","last_name":"Varga","email":"varga.zsuzsanna@gmail.com","phone_number":"06701805939","job_id":"3","zip":"1119","city":"Budapest","street_address":"Andor utca","house_number":"40","floor_door":null}
+{"first_name":"Zsuzsanna","last_name":"Varga","email":"varga.zsuzsanna@gmail.com","phone_number":"06701805939","job_id":"3","zip":"1119","city":"Budapest","street_address":"Andor utca","house_number":"40","floor_door":"","active":"1"}

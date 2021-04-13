@@ -19,22 +19,28 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf041cf-c2de-4bae-a23a-5c9d14c13cc1" name="Default Changelist" comment="reservation guest">
+    <list default="true" id="0bf041cf-c2de-4bae-a23a-5c9d14c13cc1" name="Default Changelist" comment="attendance sheets">
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/controller/AttendanceSheetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/AttendanceSheetsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controller/MainController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/MainController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/AttendanceSheets.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/AttendanceSheets.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/attendanceSheets/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/attendanceSheets/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controller/EmployeesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/EmployeesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controller/FunctionsController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controller/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/MenuController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/model/Employees.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Employees.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/model/ErrorReports.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/ErrorReports.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/model/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Menu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/attendanceSheets/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/attendanceSheets/js/datatables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/contacts/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/contacts/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/employees/fetch.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/fetch.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/employees/fetchSingle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/fetchSingle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/home/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/template/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/template/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/employees/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/employees/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/js/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/errorReports/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/errorReports/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/errorReports/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/errorReports/js/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/menu/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/menu/js/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/orders/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/orders/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/orders/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/orders/js/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/reservations/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/reservations/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,26 +87,26 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/app/view/attendanceSheets/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../dolgozatmvc" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\model" />
-      <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\errorReports\img" />
-      <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\home\js" />
-      <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view" />
-      <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\employees\js" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\attendanceSheets\js" />
       <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\reservationGuest\js" />
       <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\errorReports\js" />
       <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\controller" />
       <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\reservations\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\model" />
+      <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\errorReports\img" />
+      <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\home\js" />
+      <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view" />
+      <recent name="D:\Program Files\xampp\htdocs\iskolaphp\zarodolgozat\sparetimehotel\src\app\view\employees\js" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -150,7 +156,11 @@
       <workItem from="1617347157194" duration="1480000" />
       <workItem from="1617629785343" duration="27952000" />
       <workItem from="1617699856437" duration="27832000" />
-      <workItem from="1617773573143" duration="6140000" />
+      <workItem from="1617773573143" duration="19530000" />
+      <workItem from="1617867024099" duration="1685000" />
+      <workItem from="1618171827569" duration="206000" />
+      <workItem from="1618216287042" duration="23190000" />
+      <workItem from="1618307797367" duration="2768000" />
     </task>
     <task id="LOCAL-00001" summary="Adding readme">
       <created>1612899776629</created>
@@ -229,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617728863147</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="attendance sheets">
+      <created>1617780108148</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1617780108148</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +277,8 @@
     <MESSAGE value="reservations" />
     <MESSAGE value="error reports" />
     <MESSAGE value="reservation guest" />
-    <option name="LAST_COMMIT_MESSAGE" value="reservation guest" />
+    <MESSAGE value="attendance sheets" />
+    <option name="LAST_COMMIT_MESSAGE" value="attendance sheets" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1165" y="354" width="778" height="332" key="#File_Watchers" timestamp="1612890785311">
@@ -271,10 +289,10 @@
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
     <state x="1031" y="344" key="#Notifications/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1615475276417" />
-    <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1617110234793">
+    <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1618261056798">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1617110234793" />
+    <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1618261056798" />
     <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612947008664" />
     <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser/182.-1084.1920.1040/-842.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1614878988697" />
     <state x="1073" y="229" key="#com.intellij.ide.util.MemberChooser/182.-1084.1920.1040/0.0.2560.1040/-842.-768.1024.728@0.0.2560.1040" timestamp="1615156596886" />
@@ -285,10 +303,10 @@
     <state x="1081" y="192" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612911133761" />
     <state x="1081" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/182.-1084.1920.1040/-842.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1614865729466" />
     <state x="1081" y="192" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/98.-1080.1920.1040/-926.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1613401034540" />
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617746995364">
+    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1618262465826">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1617746995364" />
+    <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1618262465826" />
     <state x="1010" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612990734867" />
     <state x="890" y="46" width="1024" height="935" key="CommitChangelistDialog2" timestamp="1613404687722">
       <screen x="0" y="0" width="2560" height="1040" />
@@ -300,10 +318,10 @@
     </state>
     <state x="949" y="298" key="EditFileWatcherDialog/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1615978861193" />
     <state x="949" y="298" key="EditFileWatcherDialog/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612890783019" />
-    <state x="821" y="256" key="FileChooserDialogImpl" timestamp="1615838164209">
+    <state x="821" y="256" key="FileChooserDialogImpl" timestamp="1617867160199">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="821" y="256" key="FileChooserDialogImpl/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1615838164209" />
+    <state x="821" y="256" key="FileChooserDialogImpl/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1617867160199" />
     <state x="987" y="275" key="FileChooserDialogImpl/182.-1084.1920.1040/-842.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1614894652521" />
     <state x="838" y="-805" key="FileChooserDialogImpl/98.-1080.1920.1040/-926.-768.1024.728/0.0.2560.1040@98.-1080.1920.1040" timestamp="1613148758868" />
     <state x="929" y="381" width="480" height="204" key="Github.ShareDialog" timestamp="1612899014944">
@@ -340,10 +358,10 @@
     <state x="781" y="165" key="SettingsEditor/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1615978862369" />
     <state x="692" y="-929" key="SettingsEditor/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@201.-1088.1920.1040" timestamp="1617744023210" />
     <state x="781" y="165" key="SettingsEditor/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612898692003" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1617728865307">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1617780152629">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1617728865307" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1617780152629" />
     <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612977320649" />
     <state x="872" y="253" key="Vcs.Push.Dialog.v2/98.-1080.1920.1040/-926.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1613404749790" />
     <state x="1097" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617347583490">

@@ -1,6 +1,9 @@
-<IfModule mod_rewrite.c>
+#<IfModule mod_rewrite.c>
+#RewriteEngine On
+#RewriteOptions MaxRedirects=10
+#RewriteRule ^(.*)controller/([^/]+)(/*)$ index.php?controller=home&action=$2 [L]
+#
 RewriteEngine On
-RewriteOptions MaxRedirects=10
-RewriteRule ^(.*)controller/([^/]+)(/*)$ index.php?controller=home&action=$2 [L]
+RewriteRule ^iskolaphp/zarodolgozat/sparetimehotel/([^/\.]+)/([^/\.]+)?$ /iskolaphp/zarodolgozat/sparetimehotel/index.php?controller=$1&action=$2 [L]
 
-</IfModule>
+#</IfModule>

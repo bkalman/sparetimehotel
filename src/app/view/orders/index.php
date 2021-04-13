@@ -37,7 +37,6 @@ if(Jobs::currentUserCan('function.restaurant')): ?>
                             <th scope="col">Ebéd</th>
                             <th scope="col">Vacsora</th>
                             <th scope="col">Szerkesztés</th>
-                            <th scope="col">Törlés</th>
                         </tr>
                         </thead>
                     </table>

@@ -1,5 +1,5 @@
 function addBill(s) {
-    $('#bills').append(`<div class="form-row"><div class="form-group col-sm-8"><label for="bill" class="labelUp">Számla</label><input type="file" name="bill[${s}]" id="bill" class="form-control-file" style="font-size: 15px;margin-top:4px"></div><div class="form-group col-10 col-sm-3"><label for="price">Ár</label><input type="number" name="price[${s}]" id="price" class="form-control"></div><div class="form-group col-2 col-sm-1"><svg id="newBill" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus-circle" viewBox="-4 -4 25 25"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></div></div>`);
+    $('#bills').append(`<div class="form-row"><div class="form-group col-sm-8"><label for="bill" class="labelUp">Számla</label><input type="file" name="bill[${s}]" id="bill" class="form-control-file" style="font-size: 15px;margin-top:4px"></div><div class="form-group col-10 col-sm-3"><label for="price" class="labelUp">Ár</label><input type="number" name="price[${s}]" id="price" class="form-control"></div><div class="form-group col-2 col-sm-1"><svg id="newBill" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-plus-circle" viewBox="-4 -4 25 25"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></div></div>`);
 }
 function arr_diff (a1, a2) {
 
@@ -77,7 +77,7 @@ $(document).ready(function(){
                 data:new FormData(this),
                 contentType:false,
                 processData:false,
-                success:function(data)
+                success:function()
                 {
                     $('#errorReports_form')[0].reset();
                     $('#errorReportsModal').modal('hide');
@@ -88,13 +88,12 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '.update', function(){
+        $('#errorReportsModal').modal('show');
         $('#errorReports_form .form-group input, #errorReports_form .form-group select').attr('class','form-control');
-        $('#newUser').attr('class','btn btn-primary w-100');
+
         $('#errorReports_form .form-group > label').removeClass('labelColor');
         $('#errorReports_form .form-group > label').attr('class','labelUp');
 
-        $('#guest_id').parent().attr('class','form-group col-12');
-        $('#newUserButton').html('');
 
         $('.modal-title').text('Foglalás szerkesztése');
 
@@ -110,9 +109,10 @@ $(document).ready(function(){
                 $('#errorReportsModal').modal('show');
 
                 $('#room_id').val(data.room_id);
-                $('#place').val(data.storey);
-                $('#storey').val(data.status);
-                $('#status').val(data.report);
+                $('#place').val(data.place);
+                $('#storey').val(data.storey);
+                $('#status').val(data.status);
+                $('#report').val(data.report);
                 $('#report_id').val(data.report_id);
 
                 $('#action').val("Változtat");
@@ -278,7 +278,7 @@ $(document).ready(function(){
                     data: new FormData(this),
                     contentType: false,
                     processData: false,
-                    success: function (data) {
+                    success: function () {
                         $('#diary_form')[0].reset();
                         $('#diaryModal').modal('hide');
                         dataTable.ajax.reload();
@@ -299,26 +299,23 @@ $(document).ready(function(){
 
                 let priceValid = true;
 
-                for (let i = 1; i <= document.querySelector('#bills').childElementCount; i++) {
-                    console.log('#'+document.querySelector(`#bills > form-row:nth-of-type(${i})`)+' '+document.querySelector('#bills').children[i].children[1].children[1].tagName);
-                } // js itt tartok számla ellenőrzése
+                document.querySelectorAll('#bills > .form-row').forEach(e => {
+                    if (e.children[0].children[1].tagName == 'INPUT') {
+                        if (e.children[0].children[1].value != '') {
+                            if (e.children[1].children[1].value == '') {
+                                console.log($('input#price[name="'+e.children[1].children[1].name+'"]').addClass('border border-danger'));
+                                priceValid = false;
+                            }
+                        }
+                    } else if (e.children[0].children[1].tagName == 'IMG') {
+                        if (e.children[1].children[1].value == '') {
+                            console.log($('input#price[name="'+e.children[1].children[1].name+'"]').addClass('border border-danger'));
+                            priceValid = false;
+                        }
+                    }
+                });
 
-                // document.querySelectorAll('#bill').forEach(e => {
-                    // console.log('--');
-                    // console.log('#'+$(e).id+' #'+$(e).parent().parent().children(2)[1].children[1].id);
-                    // console.log($('#'+$(e).id+' '+$(e).parent().parent().children(2)[1].children[1].id).val());
-                    // if ($(document.querySelector('#'+e).parent().parent().children(2)[1].children[1].id).val() == '' && $(e).val() != '') {
-                    //     console.log(document.querySelector('#'+e).parent().parent().children[1]);
-                    //     console.log($(document.querySelector('#'+e).parent().parent().children(2)[1].children[1].id).addClass('is-invalid'));
-                    //     priceValid = false;
-                    // } else {
-                    //     if (priceValid != false)
-                    //         priceValid = true;
-                    // }
-
-                // });
-
-                if (priceValid == 'asd') {
+                if (priceValid == true) {
                     $.ajax({
                         url: "index.php?controller=errorReports&action=insertDiary",
                         method: 'POST',
@@ -347,7 +344,7 @@ $(document).ready(function(){
         }
     });
 
-    ['room_id','report','comment','price'].forEach(e => {
+    ['room_id','report','comment'].forEach(e => {
         let input = '#'+e;
         let label = 'label[for='+e+']';
 

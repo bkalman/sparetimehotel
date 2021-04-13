@@ -97,16 +97,17 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '.delete', function(){
-        let menu_id = $(this).attr("id");
         if(confirm("Biztosan törölni szeretné?"))
         {
             $.ajax({
                 url:"index.php?controller=menu&action=delete",
                 method:"POST",
-                data:{menu_id:menu_id},
+                data:{menu_id:$(this).attr("id")},
                 success:function(data)
                 {
-                    dataTable.ajax.reload();
+                    if (data.includes('false-in-menu')) {
+                        alert('Ez az adat nem törölhető!');
+                    } else dataTable.ajax.reload();
                 }
             });
         }
