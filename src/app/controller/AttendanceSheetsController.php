@@ -120,18 +120,6 @@ class AttendanceSheetsController
     }
 
     public static function actionUpdate() {
-//        $posts = ['start_time','end_time','working_hours','break','status','employee_id','date'];
-//        $boolean = true;
-//        foreach ($posts as $p) {
-//            if (empty($_POST[$p])) {
-//                print_r($p."\n");
-//                if ($boolean == true)
-//                    $boolean = false;
-//
-//            } else return false;
-//        }
-//
-//        if ($boolean == true) {
             AttendanceSheets::update([
                 'start_time' => $_POST['attendance_sheets']['start_time'],
                 'end_time' => $_POST['attendance_sheets']['end_time'],

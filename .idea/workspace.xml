@@ -19,28 +19,37 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf041cf-c2de-4bae-a23a-5c9d14c13cc1" name="Default Changelist" comment="attendance sheets">
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+    <list default="true" id="0bf041cf-c2de-4bae-a23a-5c9d14c13cc1" name="Default Changelist" comment="attendance sheets, employees, error reports, menu - error correction">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/controller/AttendanceSheetsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/AttendanceSheetsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/controller/EmployeesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/EmployeesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controller/FunctionsController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controller/MenuController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/MenuController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/Employees.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Employees.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/ErrorReports.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/ErrorReports.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/model/JobHistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/JobHistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/model/Jobs.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Jobs.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/model/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/attendanceSheets/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/attendanceSheets/js/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/model/MenuAllergens.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/MenuAllergens.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/model/RoomBooking.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/RoomBooking.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/model/Spending.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Spending.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/attendanceSheets/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/attendanceSheets/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/employees/fetch.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/fetch.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/employees/fetchSingle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/fetchSingle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/employees/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/employees/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/js/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/employees/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/employees/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/errorReports/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/errorReports/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/errorReports/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/errorReports/js/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/menu/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/menu/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/menu/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/menu/js/datatables.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/orders/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/orders/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/view/orders/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/orders/js/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/reservationGuest/js/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/reservationGuest/js/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/reservationGuest/personalData.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/reservationGuest/personalData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/reservationGuest/room.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/reservationGuest/room.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/view/reservations/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/reservations/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/template/mainTemplate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/template/mainTemplate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/view/template/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/view/template/navbar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +169,13 @@
       <workItem from="1617867024099" duration="1685000" />
       <workItem from="1618171827569" duration="206000" />
       <workItem from="1618216287042" duration="23190000" />
-      <workItem from="1618307797367" duration="2768000" />
+      <workItem from="1618307797367" duration="9112000" />
+      <workItem from="1618379057174" duration="6541000" />
+      <workItem from="1618399150355" duration="24392000" />
+      <workItem from="1618436647606" duration="1090000" />
+      <workItem from="1618471703965" duration="14444000" />
+      <workItem from="1618819223133" duration="1020000" />
+      <workItem from="1618938858247" duration="839000" />
     </task>
     <task id="LOCAL-00001" summary="Adding readme">
       <created>1612899776629</created>
@@ -246,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617780108148</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="attendance sheets, employees, error reports, menu - error correction">
+      <created>1618315262601</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1618315262601</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +300,8 @@
     <MESSAGE value="error reports" />
     <MESSAGE value="reservation guest" />
     <MESSAGE value="attendance sheets" />
-    <option name="LAST_COMMIT_MESSAGE" value="attendance sheets" />
+    <MESSAGE value="attendance sheets, employees, error reports, menu - error correction" />
+    <option name="LAST_COMMIT_MESSAGE" value="attendance sheets, employees, error reports, menu - error correction" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1165" y="354" width="778" height="332" key="#File_Watchers" timestamp="1612890785311">
@@ -318,10 +341,11 @@
     </state>
     <state x="949" y="298" key="EditFileWatcherDialog/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1615978861193" />
     <state x="949" y="298" key="EditFileWatcherDialog/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612890783019" />
-    <state x="821" y="256" key="FileChooserDialogImpl" timestamp="1617867160199">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state x="817" y="-832" key="FileChooserDialogImpl" timestamp="1618382880778">
+      <screen x="201" y="-1088" width="1920" height="1040" />
     </state>
     <state x="821" y="256" key="FileChooserDialogImpl/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1617867160199" />
+    <state x="817" y="-832" key="FileChooserDialogImpl/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@201.-1088.1920.1040" timestamp="1618382880778" />
     <state x="987" y="275" key="FileChooserDialogImpl/182.-1084.1920.1040/-842.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1614894652521" />
     <state x="838" y="-805" key="FileChooserDialogImpl/98.-1080.1920.1040/-926.-768.1024.728/0.0.2560.1040@98.-1080.1920.1040" timestamp="1613148758868" />
     <state x="929" y="381" width="480" height="204" key="Github.ShareDialog" timestamp="1612899014944">
@@ -358,10 +382,10 @@
     <state x="781" y="165" key="SettingsEditor/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1615978862369" />
     <state x="692" y="-929" key="SettingsEditor/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@201.-1088.1920.1040" timestamp="1617744023210" />
     <state x="781" y="165" key="SettingsEditor/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612898692003" />
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1617780152629">
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2" timestamp="1618315264418">
       <screen x="0" y="0" width="2560" height="1040" />
     </state>
-    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1617780152629" />
+    <state x="872" y="253" key="Vcs.Push.Dialog.v2/-823.-768.1024.728/0.0.2560.1040/201.-1088.1920.1040@0.0.2560.1040" timestamp="1618315264418" />
     <state x="872" y="253" key="Vcs.Push.Dialog.v2/0.-1080.1920.1040/-1024.-466.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1612977320649" />
     <state x="872" y="253" key="Vcs.Push.Dialog.v2/98.-1080.1920.1040/-926.-768.1024.728/0.0.2560.1040@0.0.2560.1040" timestamp="1613404749790" />
     <state x="1097" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617347583490">

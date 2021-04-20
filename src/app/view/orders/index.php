@@ -10,16 +10,17 @@ $menu = Menu::findAll();
 /** @var Orders[] $orders */
 /** @var Guests[] $guests */
 /** @var Menu[] $menu */
-if(Jobs::currentUserCan('function.restaurant')): ?>
+if(Jobs::currentUserCan('function.orders')): ?>
     <section id="container">
         <div class="container">
             <div class="row">
                 <div class="col-6">
-                    <h3 id="restaurant_orders"><a href="index.php?controller=hyperlink&action=orders">Rendelések</a></h3>
+                    <h3 id="restaurant_orders"><a href="index.php?controller=view&action=orders" class="text-underline">Rendelések</a></h3>
                 </div>
-                <div class="col-6">
-                    <h3 id="restaurant_menu"><a href="index.php?controller=hyperlink&action=menu">Menü</a></h3>
-                </div>
+
+                    <div class="col-6">
+                        <h3 id="restaurant_menu"><a href="index.php?controller=view&action=menu">Menü</a></h3>
+                    </div>
             </div>
             <div class="container box">
                 <div class="table-responsive">

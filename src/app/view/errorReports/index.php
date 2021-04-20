@@ -16,16 +16,15 @@ $status = ['tönkrement','meghibásodott','egyéb'];
 /** @var Rooms[] $storey */
 /** @var ErrorReports[] $reports */
 /** @var Employees[] $employees */
-if(Jobs::currentUserCan('function.report')): ?>
+?>
     <section id="container">
         <div class="container">
             <div class="container box">
+                <h1>Hibabejelentések</h1>
                 <div class="table-responsive">
-                    <br>
                     <div align="right">
                         <button type="button" id="add_button" data-toggle="modal" data-target="#errorReportsModal" class="btn btn-info btn-lg">Felvétel</button>
                     </div>
-                    <br><br>
                     <table id="errorReports_data" class="table">
                         <thead>
                         <tr>
@@ -35,9 +34,11 @@ if(Jobs::currentUserCan('function.report')): ?>
                             <th scope="col">Státusz</th>
                             <th scope="col">Üzenet</th>
                             <th scope="col">Bejelentés</th>
-                            <th scope="col" style="width: 40px">Naplózás</th>
-                            <th scope="col" style="width: 40px">Szerkesztés</th>
-                            <th scope="col" style="width: 40px">Befejezve</th>
+                            <?php if(Jobs::currentUserCan('function.report')): ?>
+                                <th scope="col" style="width: 40px">Naplózás</th>
+                                <th scope="col" style="width: 40px">Szerkesztés</th>
+                            <?php endif; ?>
+                                <th scope="col" style="width: 40px">Befejezve</th>
                         </tr>
                         </thead>
                     </table>
@@ -104,7 +105,7 @@ if(Jobs::currentUserCan('function.report')): ?>
         </div>
     </div>
 
-
+<?php if(Jobs::currentUserCan('function.report')): ?>
     <div id="diaryModal" class="modal fade">
         <div class="modal-dialog">
             <form method="post" id="diary_form" enctype="multipart/form-data">

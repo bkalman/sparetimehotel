@@ -14,61 +14,53 @@
                             </svg>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="nav-link" href="index.php?controller=hyperlink&action=home">Kezdőlap</a>
-                            <a class="nav-link" href="index.php?controller=hyperlink&action=attractions">Látnivalók</a>
-                            <a class="nav-link" href="index.php?controller=hyperlink&action=contacts">Elérhetőségek</a>
-                            <a class="nav-link" href="index.php?controller=hyperlink&action=employees">Belépés</a>
+                            <a class="nav-link" href="index.php?controller=view&action=home">Kezdőlap</a>
+                            <a class="nav-link" href="index.php?controller=view&action=attractions">Látnivalók</a>
+                            <a class="nav-link" href="index.php?controller=view&action=contacts">Elérhetőségek</a>
                         </div>
                     </li>
                     <?php if(Jobs::getCurrentUserAccessRight() == 'function.all'): ?>
                         <li class="nav-item">
-                            <a href="index.php?controller=hyperlink&action=reservations" class="nav-link">Foglalások</a>
+                            <a href="index.php?controller=view&action=reservations" class="nav-link">Foglalások</a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?controller=hyperlink&action=employees" class="nav-link">Munkavállalók</a>
+                            <a href="index.php?controller=view&action=employees" class="nav-link">Munkavállalók</a>
                         </li>
                         <li class="nav-item">
-                            <a href="index.php?controller=hyperlink&action=errorReports" class="nav-link">Hibabejelentések</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="index.php?controller=hyperlink&action=orders" class="nav-link">Étterem</a>
+                            <a href="index.php?controller=view&action=orders" class="nav-link">Étterem</a>
                         </li>
                     <?php elseif(Jobs::getCurrentUserAccessRight() == 'function.reservation'): ?>
                             <li class="nav-item">
-                                <a href="index.php?controller=hyperlink&action=reservations" class="nav-link">Foglalások</a>
+                                <a href="index.php?controller=view&action=reservations" class="nav-link">Foglalások</a>
                             </li>
                     <?php elseif(Jobs::getCurrentUserAccessRight() == 'function.guests'): ?>
                         <li class="nav-item">
-                            <a href="index.php?controller=hyperlink&action=reservations" class="nav-link">Foglalások</a>
+                            <a href="index.php?controller=view&action=reservations" class="nav-link">Foglalások</a>
                         </li>
-                    <?php elseif(Jobs::getCurrentUserAccessRight() == 'function.employees'): ?>
+                    <?php elseif(Jobs::getCurrentUserAccessRight() == 'function.employee'): ?>
                         <li class="nav-item">
-                            <a href="index.php?controller=hyperlink&action=employees" class="nav-link">Munkavállalók</a>
-                        </li>
-                    <?php elseif(Jobs::getCurrentUserAccessRight() == 'function.reports'): ?>
-                        <li class="nav-item">
-                            <a href="index.php?controller=hyperlink&action=errorReports" class="nav-link">Hibabejelentések</a>
+                            <a href="index.php?controller=view&action=employees" class="nav-link">Munkavállalók</a>
                         </li>
                     <?php elseif(Jobs::getCurrentUserAccessRight() == 'function.restaurant'): ?>
                         <li class="nav-item">
-                            <a href="index.php?controller=hyperlink&action=orders" class="nav-link">Étterem</a>
+                            <a href="index.php?controller=view&action=orders" class="nav-link">Étterem</a>
                         </li>
                     <?php endif; ?>
                     <li class="nav-item">
-                        <a href="index.php?controller=hyperlink&action=attendanceSheets" class="nav-link">Jelenléti ív</a>
+                        <a href="index.php?controller=view&action=errorReports" class="nav-link">Hibabejelentések</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.php?controller=view&action=attendanceSheets" class="nav-link">Jelenléti ív</a>
                     </li>
                 <?php else: ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?controller=hyperlink&action=home">Kezdőlap</a>
+                        <a class="nav-link" href="index.php?controller=view&action=home">Kezdőlap</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?controller=hyperlink&action=attractions">Látnivalók</a>
+                        <a class="nav-link" href="index.php?controller=view&action=attractions">Látnivalók</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?controller=hyperlink&action=contacts">Elérhetőségek</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php?controller=employees&action=loginIndex">Belépés</a>
+                        <a class="nav-link" href="index.php?controller=view&action=contacts">Elérhetőségek</a>
                     </li>
                 <?php endif; ?>
                 <li class="nav-item">

@@ -23,6 +23,7 @@ if(Jobs::currentUserCan('function.reservation')): ?>
     <section id="container">
         <div class="container">
             <div class="container box">
+                <h1>Foglalások</h1>
                 <div class="table-responsive">
                     <br>
                     <div align="right">

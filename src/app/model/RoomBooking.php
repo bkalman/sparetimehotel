@@ -127,6 +127,19 @@ class RoomBooking
         return $stmt->fetchObject(self::class);
     }
 
+    public static function currentRoom($data) {
+        $conn = Database::getConnection();
+        $stmt = $conn->prepare('SELECT * FROM room_booking WHERE room_id = :room_id AND ((start_date <= :start_date AND end_date > :start_date) OR (start_date <= :end_date AND end_date > :end_date))');
+        $stmt->execute([
+            ':room_id' => $data['room_id'],
+            ':start_date' => $data['start_date'],
+            ':end_date' => $data['end_date'],
+
+        ]);
+        //print_r($stmt->fetchAll());
+        return !empty($stmt->fetchAll()) ? false : true;
+    }
+
     public function load($data) {
         foreach ($this->loadable as $item) {
             if(array_key_exists($item,$data) && !empty($data[$item])) {

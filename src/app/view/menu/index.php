@@ -10,24 +10,24 @@ $recommendation = Recommendation::findAll();
 /** @var Menu[] $menu */
 /** @var Allergens[] $allergens */
 /** @var Recommendation[] $recommendation */
-if(Jobs::currentUserCan('function.restaurant')): ?>
+?>
     <section id="container">
         <div class="container">
             <div class="row">
                 <div class="col-6">
-                    <h3 id="restaurant_orders"><a href="index.php?controller=hyperlink&action=orders">Rendelések</a></h3>
+                    <h3 id="restaurant_orders"><a href="index.php?controller=view&action=orders">Rendelések</a></h3>
                 </div>
                 <div class="col-6">
-                    <h3 id="restaurant_menu"><a href="index.php?controller=hyperlink&action=menu">Menü</a></h3>
+                    <h3 id="restaurant_menu"><a href="index.php?controller=view&action=menu" class="text-underline">Menü</a></h3>
                 </div>
             </div>
             <div class="container box">
                 <div class="table-responsive">
-                    <br>
-                    <div align="right">
-                        <button type="button" id="add_button" data-toggle="modal" data-target="#menuModal" class="btn btn-info btn-lg">Felvétel</button>
-                    </div>
-                    <br><br>
+                    <?php if(Jobs::currentUserCan('function.menu')): ?>
+                        <div align="right">
+                            <button type="button" id="add_button" data-toggle="modal" data-target="#menuModal" class="btn btn-info btn-lg">Felvétel</button>
+                        </div><br><br>
+                    <?php endif; ?>
                     <table id="menu_data" class="table">
                         <thead>
                         <tr>
@@ -36,8 +36,10 @@ if(Jobs::currentUserCan('function.restaurant')): ?>
                             <th scope="col" style="width: 50px;">Ár</th>
                             <th scope="col" style="width: 50px;">Érvényesség</th>
                             <th scope="col">Ajánlat</th>
-                            <th scope="col" style="width: 70px">Szerkesztés</th>
-                            <th scope="col" style="width: 70px">Törlés</th>
+                            <?php if(Jobs::currentUserCan('function.menu')): ?>
+                                <th scope="col" style="width: 70px">Szerkesztés</th>
+                                <th scope="col" style="width: 70px">Törlés</th>
+                            <?php endif; ?>
                         </tr>
                         </thead>
                     </table>
@@ -45,7 +47,7 @@ if(Jobs::currentUserCan('function.restaurant')): ?>
             </div>
         </div>
     </section>
-
+<?php if(Jobs::currentUserCan('function.menu')): ?>
     <div id="menuModal" class="modal fade">
         <div class="modal-dialog">
             <form method="post" id="menu_form" enctype="multipart/form-data">

@@ -109,7 +109,7 @@ class Menu
         $stmtMenu->execute([$id,$id,$id,]);
         $result = $stmtMenu->fetchAll(\PDO::FETCH_CLASS,self::class);
         if (empty($result) && $id != 0) {
-            MenuAllergens::deleteAll($id);
+            MenuAllergens::deleteAllById($id);
             MenuRecommendation::delete($id);
             $stmt = $conn->prepare("DELETE FROM menu WHERE menu_id = ?");
             $stmt->execute([$id]);

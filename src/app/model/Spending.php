@@ -49,13 +49,6 @@ class Spending
         return $stmt->fetchAll(\PDO::FETCH_CLASS, self::class);
     }
 
-    public static function findByBill($bill) {
-        $conn = Database::getConnection();
-        $stmt = $conn->prepare('SELECT * FROM spending WHERE bill = ?');
-        $stmt->execute([$bill]);
-        return $stmt->fetchAll(\PDO::FETCH_CLASS, self::class);
-    }
-
     public static function insert($reportId,$bill,$price) {
         $conn = Database::getConnection();
         $stmt = $conn->prepare('INSERT INTO spending(report_id,bill,price) VALUES (:report_id,:bill,:price)');

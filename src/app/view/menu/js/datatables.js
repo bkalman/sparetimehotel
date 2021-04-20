@@ -18,7 +18,7 @@ $(document).ready(function(){
         },
         "columnDefs":[
             {
-                "targets":[1,4,5],
+                "targets":[1,4],
                 "orderable":false,
             },
         ],

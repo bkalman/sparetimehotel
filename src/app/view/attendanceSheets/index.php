@@ -17,6 +17,7 @@ $employees = Employees::findAll();
 <section id="container">
     <div class="container">
         <div class="container box">
+            <h1>Jelenléti ív</h1>
             <div class="table-responsive">
                 <?php if(Jobs::currentUserCan('function.employee')): ?>
                 <div align="right">

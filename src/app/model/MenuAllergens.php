@@ -69,7 +69,7 @@ class MenuAllergens
             ':allergen_id' => $data,
         ]);
     }
-    public static function deleteAll($id) {
+    public static function deleteAllById($id) {
         $conn = Database::getConnection();
         $stmt = $conn->prepare('DELETE FROM menu_allergens WHERE menu_id = :menu_id');
         $stmt->execute([

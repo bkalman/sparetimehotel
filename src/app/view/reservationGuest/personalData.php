@@ -25,7 +25,7 @@ if(!empty($_SESSION['reservation'])): ?>
             </div>
             <div class="row">
                 <div class="col-12">
-                    <h1>Szoba kiválasztása</h1>
+                    <h1>Személyes adatok és összegzés</h1>
                 </div>
             </div>
             <div class="row">
@@ -54,7 +54,7 @@ if(!empty($_SESSION['reservation'])): ?>
                             </div>
                             <div class="col-12">
                                 <h1 class="my-5">Összegzés:</h1>
-                                <h3 class="mt-5">Időpont és fő</h3>
+                                <h3 class="mt-5">Időpont és létszám</h3>
                                 Bejelentkezés: <?= $_SESSION['reservation']['start_date'] ?><br>
                                 Kijelentkezés: <?= $_SESSION['reservation']['end_date'] ?><br>
                                 <?= $_SESSION['reservation']['adult'] ?> felnőtt<br>

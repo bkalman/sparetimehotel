@@ -11,6 +11,8 @@ $(document).ready(function(){
 
         $('#user_form label').removeClass('labelUp labelColor');
         $('#user_form label[for=job_id]').addClass('labelUp');
+        $('label[for=started_date]').addClass('labelUp');
+        $('label[for=end_date]').addClass('labelUp');
 
         $('.modal-body label[for=password]').text('Jelszó');
     });
@@ -95,13 +97,12 @@ $(document).ready(function(){
         $('#user_form .form-group input, #user_form .form-group select').attr('class','form-control');
         $('#user_form label').removeClass('labelColor');
         $('#user_form label').addClass('labelUp');
-
         $('.modal-body label[for=password]').text('Új jelszó');
 
         $.ajax({
             url:"index.php?controller=employees&action=fetchSingle",
             method:"POST",
-            data:{employee_id:employee_id},
+            data:{employee_id:employee_id,},
             dataType:"json",
             success:function(data)
             {
@@ -121,30 +122,12 @@ $(document).ready(function(){
                 $('#employee_id').val(employee_id);
                 $('#user_uploaded_image').html(data.user_image);
                 $('#active').val(data.active);
+                $('#started_date').val(data.started_date);
+                $('#end_date').val(data.end_date);
                 $('#action').val("Változtat");
                 $('#operation').val("Változtat");
             }
         })
-    });
-
-    $(document).on('click', '.delete', function(){
-        var employee_id = $(this).attr("id");
-        if(confirm("Biztosan törölni szeretné?"))
-        {
-            $.ajax({
-                url:"index.php?controller=employees&action=delete",
-                method:"POST",
-                data:{employee_id:employee_id},
-                success:function(data)
-                {
-                    dataTable.ajax.reload();
-                }
-            });
-        }
-        else
-        {
-            return false;
-        }
     });
 
     let inputs = ['last_name', 'first_name', 'job_id', 'email', 'phone_number', 'zip', 'city', 'street_address', 'house_number', 'floor_door', 'password', 'password_repeat'];
@@ -161,6 +144,23 @@ $(document).ready(function(){
             } else {
                 $(label).removeClass('labelColor');
                 $(label).addClass('labelUp');
+            }
+        });
+    });
+
+    $(document).on('submit', '#login', function(){
+        $.ajax({
+            url:"index.php?controller=employees&action=login",
+            method:'POST',
+            data:{
+                email:$('#email').val(),
+                password:$('#password').val(),
+            },
+            success:function(data)
+            {
+                if (data.includes('login-true')) {
+                    window.location.assign('index.php');
+                } else alert('Hibás email vagy jelszó!');
             }
         });
     });

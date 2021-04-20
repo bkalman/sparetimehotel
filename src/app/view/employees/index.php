@@ -112,6 +112,16 @@ if(Jobs::currentUserCan('function.employee')): ?>
                             <div class="invalid-feedback">Nincsen kitöltve!</div>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="col-6 form-group">
+                            <label for="started_date" class="labelUp">Első munkanap</label>
+                            <input type="date" name="employee[started_date]" id="started_date" class="form-control">
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="end_date" class="labelUp">Utolsó munkanap</label>
+                            <input type="date" name="employee[end_date]" id="end_date" class="form-control">
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <input type="hidden" name="employee[active]" id="active">

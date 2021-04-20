@@ -3,6 +3,7 @@
 
 namespace app\controller;
 use app\model\Employees;
+use app\model\JobHistory;
 use app\model\Jobs;
 use db\Database;
 
@@ -20,19 +21,11 @@ class EmployeesController extends MainController
             $user = Employees::findOneByEmail($_POST['email']);
             if(!empty($user)) {
                 if ($user->doLogin($_POST['password'])) {
-                    header('Location: index.php');
-                    exit;
-                } else {
-                    header('Location: index.php?controller=hyperlink&action=employees&login=false');
-                    echo 'Sikertelen bejelentkezés';
+                    return 'login-true';
                 }
-            } else {
-                header('Location: index.php?controller=hyperlink&action=employees&login=false');
-                echo 'Sikertelen bejelentkezés';
             }
-        } else {
-            header('Location: index.php?controller=hyperlink&action=employees&login=false');
         }
+        return 'login-false';
     }
 
     public function actionLogout() {
@@ -63,8 +56,11 @@ class EmployeesController extends MainController
             if ($_POST["operation"] == "Felvétel") {
                 $employees->load($employee);
                 $employees->insert();
-            } else if ($_POST["operation"] == "Változtat")
+                JobHistory::insert($employee['employee_id'],date('Y-m-d'));
+            } else if ($_POST["operation"] == "Változtat") {
                 Employees::update($employee);
+                JobHistory::update($employee['employee_id'],$_POST['employee']['started_date'],$_POST['employee']['end_date']);
+            }
         }
     }
 
@@ -143,6 +139,8 @@ class EmployeesController extends MainController
                 $output['house_number'] = $row['house_number'];
                 $output['floor_door'] = $row['floor_door'];
                 $output['active'] = $row['active'];
+                $output['started_date'] = JobHistory::findOneById($_POST["employee_id"])->getStartDate();
+                $output['end_date'] = JobHistory::findOneById($_POST["employee_id"])->getEndDate();
            }
             fwrite(fopen('src/app/view/employees/fetchSingle.php','w'),json_encode($output));
             header('location: src/app/view/employees/fetchSingle.php');
@@ -153,6 +151,7 @@ class EmployeesController extends MainController
         if(!empty($_POST["employee_id"]))
         {
             Employees::updateActive($_POST['employee_id'],$_POST['active']);
+            JobHistory::update($_POST['employee_id'],$_POST['active'] == 0 ? date('Y-m-d') : null);
         }
     }
 }

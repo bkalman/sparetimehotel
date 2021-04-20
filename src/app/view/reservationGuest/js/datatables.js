@@ -31,7 +31,7 @@ $(document).ready(function(){
         $('#menu_form .form-group > input + label').removeClass('labelUp labelColor');
     });
 
-    let dataTable = $('#menu_data').DataTable({
+    $('#menu_data').DataTable({
         "processing":true,
         "serverSide":true,
         "order":[],

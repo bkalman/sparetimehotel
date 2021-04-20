@@ -2,6 +2,7 @@
 use app\model\Rooms;
 use app\model\Menu;
 use app\model\Allergens;
+use app\model\RoomBooking;
 
 $rooms = Rooms::findAll();
 $menu = Menu::findAll();
@@ -37,6 +38,7 @@ if(!empty($_SESSION['reservation'])): ?>
             </div>
             <div class="row">
                 <?php foreach ($rooms as $r): if ($r->getType() == 'szoba'): ?>
+                <?php if (RoomBooking::currentRoom(['room_id' => $r->getRoomId(),'start_date' => $_SESSION['reservation']['start_date'],'end_date' => $_SESSION['reservation']['end_date']])): ?>
                     <div class="col-12 col-md-6 col-lg-4 my-3">
                         <div class="card">
                             <div class="card-body">
@@ -47,7 +49,7 @@ if(!empty($_SESSION['reservation'])): ?>
                                 <li class="list-group-item">extrák: <?=$r->getExtras()?></li>
                             </ul>
                             <div class="card-body">
-                                <p><?=($r->getPrice()*$day*$adult)?> Ft</p>
+                                <p><?=($r->getPrice() * $day * $adult)?> Ft</p>
                                 <form action="index.php?controller=reservationGuest&action=room" method="post">
                                     <input type="hidden" name="reservation[room_id]" id="room_id" value="<?=$r->getRoomId()?>">
                                     <input type="submit" value="Választ és tovább" class="btn btn-primary">
@@ -55,7 +57,7 @@ if(!empty($_SESSION['reservation'])): ?>
                             </div>
                         </div>
                     </div>
-                <?php endif; endforeach; ?>
+                <?php endif; endif; endforeach; ?>
             </div>
         </div>
     </section>

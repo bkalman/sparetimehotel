@@ -212,14 +212,14 @@ table, .table {
   font-size: 70%;
 }
 table thead > tr, .table thead > tr {
-  background-color: gray;
+  background-color: #bdbdbd;
 }
 table thead > tr a, table thead > tr th, .table thead > tr a, .table thead > tr th {
-  color: #F39F71;
+  color: black;
 }
 table thead > tr a:hover, table thead > tr th:hover, .table thead > tr a:hover, .table thead > tr th:hover {
   text-decoration: none;
-  color: #f5bfa3;
+  color: #585858;
 }
 table tbody tr td, .table tbody tr td {
   vertical-align: middle;
@@ -355,6 +355,10 @@ input[type=checkbox] {
 
 p {
   margin-left: 20px;
+}
+
+.text-underline {
+  text-decoration: underline;
 }
 
 @media (max-width: 991px) {

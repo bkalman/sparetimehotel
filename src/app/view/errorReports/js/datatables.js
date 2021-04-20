@@ -46,7 +46,7 @@ $(document).ready(function(){
         },
         "columnDefs":[
             {
-                "targets":[4,5,6],
+                "targets":[4],
                 "orderable":false,
             },
         ],
@@ -243,7 +243,7 @@ $(document).ready(function(){
                     <input type="file" name="bill[${s}]" id="bill" class="form-control-file" style="font-size: 15px;margin-top:4px">
                 </div>
                 <div class="form-group col-10 col-sm-3">
-                    <label for="price">Ár</label>
+                    <label for="price" class="labelUp">Ár</label>
                     <input type="number" name="price[${s}]" id="price" class="form-control">
                 </div>
                 <div class="form-group col-2 col-sm-1">
@@ -258,7 +258,7 @@ $(document).ready(function(){
     $(document).on('change','#price',function() {
         let price = 0;
         document.querySelectorAll('#price').forEach(e => {
-            price += parseInt(e.value);
+            price += parseInt(e.value == '' ? 0 : e.value);
         });
         $('#price_all').val(`Összesen: ${price} Ft`);
     });

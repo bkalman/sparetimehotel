@@ -205,13 +205,13 @@ h1{
 table, .table {
   font-size: 70%;
   thead > tr {
-    background-color: gray;
+    background-color: #bdbdbd;
 
     a, th {
-      color: #F39F71;
+      color: black;
       &:hover {
         text-decoration: none;
-        color: #f5bfa3;
+        color: #585858;
       }
     }
   }
@@ -352,6 +352,10 @@ input[type=checkbox] {
 }
 p {
   margin-left: 20px;
+}
+
+.text-underline {
+  text-decoration: underline;
 }
 
 @media (max-width: 991px) {
